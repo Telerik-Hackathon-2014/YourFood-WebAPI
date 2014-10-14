@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using Microsoft.Owin.Security.OAuth;
     using Newtonsoft.Json;
 
@@ -15,7 +16,7 @@
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-            // Web API routes
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

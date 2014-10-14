@@ -2,8 +2,8 @@ namespace YourFood.Data.DbContext
 {
     using System;
     using System.Data.Entity;
-    using ForumSystem.Common;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using YourFood.Common;
     using YourFood.Data.Migrations;
     using YourFood.Models;
 

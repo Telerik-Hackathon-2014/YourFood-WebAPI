@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using YourFood.Data.DbContext;
     using YourFood.Data.Repositories;
     using YourFood.Models;
 
@@ -12,11 +11,6 @@
     {
         private readonly DbContext context;
         private readonly IDictionary<Type, object> repositories = new Dictionary<Type, object>();
-
-        public YourFoodData()
-            : this(new YourFoodDbContext())
-        {
-        }
 
         public YourFoodData(DbContext context)
         {

@@ -3,8 +3,10 @@
     using System;
     using System.Linq;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using YourFood.Data.UoW;
 
+    [EnableCors("*", "*", "*")]
     public class BaseApiController : ApiController
     {
         private IYourFoodData data;
