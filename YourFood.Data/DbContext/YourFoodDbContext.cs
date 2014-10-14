@@ -15,6 +15,24 @@ namespace YourFood.Data.DbContext
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<YourFoodDbContext, Configuration>());
         }
         
+        public IDbSet<AvailabilityProduct> AvailabilityProducts { get; set; }
+
+        public IDbSet<CatalogProduct> CatalogProducts { get; set; }
+
+        public IDbSet<Product> Products { get; set; }
+
+        public IDbSet<ProductCategory> ProductCategories { get; set; }
+
+        public IDbSet<Recipe> Recipes { get; set; }
+
+        public IDbSet<RecipeCategory> RecipeCategoriess { get; set; }
+
+        public IDbSet<RecipeProduct> RecipeProducts { get; set; }
+
+        public IDbSet<RecipeUsageRecord> RecipeUsageRecords { get; set; }
+
+        public IDbSet<ShoppingList> ShoppingLists { get; set; }
+
         public static YourFoodDbContext Create()
         {
             return new YourFoodDbContext();

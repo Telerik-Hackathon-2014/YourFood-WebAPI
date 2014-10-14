@@ -25,6 +25,78 @@
             }
         }
 
+        public IGenericRepository<AvailabilityProduct> AvailabilityProducts
+        {
+            get
+            {
+                return this.GetRepository<AvailabilityProduct>();
+            }
+        }
+
+        public IGenericRepository<CatalogProduct> CatalogProducts
+        {
+            get
+            {
+                return this.GetRepository<CatalogProduct>();
+            }
+        }
+
+        public IGenericRepository<Product> Products
+        {
+            get
+            {
+                return this.GetRepository<Product>();
+            }
+        }
+
+        public IGenericRepository<ProductCategory> ProductCategories
+        {
+            get
+            {
+                return this.GetRepository<ProductCategory>();
+            }
+        }
+
+        public IGenericRepository<Recipe> Recipes
+        {
+            get
+            {
+                return this.GetRepository<Recipe>();
+            }
+        }
+
+        public IGenericRepository<RecipeCategory> RecipeCategoriess
+        {
+            get
+            {
+                return this.GetRepository<RecipeCategory>();
+            }
+        }
+
+        public IGenericRepository<RecipeProduct> RecipeProducts
+        {
+            get
+            {
+                return this.GetRepository<RecipeProduct>();
+            }
+        }
+
+        public IGenericRepository<RecipeUsageRecord> RecipeUsageRecords
+        {
+            get
+            {
+                return this.GetRepository<RecipeUsageRecord>();
+            }
+        }
+
+        public IGenericRepository<ShoppingList> ShoppingLists
+        {
+            get
+            {
+                return this.GetRepository<ShoppingList>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

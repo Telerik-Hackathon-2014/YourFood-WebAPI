@@ -9,6 +9,24 @@
     {
         IGenericRepository<User> Users { get; }
 
+        IGenericRepository<AvailabilityProduct> AvailabilityProducts { get; }
+
+        IGenericRepository<CatalogProduct> CatalogProducts { get; }
+
+        IGenericRepository<Product> Products { get; }
+
+        IGenericRepository<ProductCategory> ProductCategories { get; }
+
+        IGenericRepository<Recipe> Recipes { get; }
+
+        IGenericRepository<RecipeCategory> RecipeCategoriess { get; }
+
+        IGenericRepository<RecipeProduct> RecipeProducts { get; }
+
+        IGenericRepository<RecipeUsageRecord> RecipeUsageRecords { get; }
+
+        IGenericRepository<ShoppingList> ShoppingLists { get; }
+
         int SaveChanges();
     }
 }
