@@ -1,2 +1,13 @@
 packages
 YourFood-WebAPI.v12.suo
+Debug
+bin
+obj
+/YourFood.ConsoleClient/bin
+/YourFood.ConsoleClient/obj
+/YourFood.Data/obj
+/YourFood.Data/bin
+/YourFood.Models/obj
+/YourFood.Models/bin
+/YourFood.Services/bin
+/YourFood.Services/obj

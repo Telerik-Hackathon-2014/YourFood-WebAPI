@@ -1,5 +1,0 @@
-D:\4. Documents\Bressan\C-Sharp\Projects\YourFood-WebAPI\YourFood.Common\bin\Debug\YourFood.Common.dll
-D:\4. Documents\Bressan\C-Sharp\Projects\YourFood-WebAPI\YourFood.Common\bin\Debug\YourFood.Common.pdb
-D:\4. Documents\Bressan\C-Sharp\Projects\YourFood-WebAPI\YourFood.Common\obj\Debug\YourFood.Common.csprojResolveAssemblyReference.cache
-D:\4. Documents\Bressan\C-Sharp\Projects\YourFood-WebAPI\YourFood.Common\obj\Debug\YourFood.Common.dll
-D:\4. Documents\Bressan\C-Sharp\Projects\YourFood-WebAPI\YourFood.Common\obj\Debug\YourFood.Common.pdb
