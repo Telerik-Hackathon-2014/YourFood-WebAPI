@@ -22,13 +22,13 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            CreateKernel();
+            //CreateKernel();
         }
 
-        //protected void Application_BeginRequest(object sender, EventArgs e)
-        //{
-        //    this.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-        //}
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            this.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        }
 
         private static IKernel CreateKernel()
         {
