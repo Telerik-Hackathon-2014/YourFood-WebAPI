@@ -21,7 +21,7 @@
         {
             this.ConfigureAuth(app);
             // app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(GlobalConfiguration.Configuration);
-            app.UseNinjectMiddleware(CreateKernel);
+          //  app.UseNinjectMiddleware(CreateKernel);
             //CreateKernel();
         }
 
