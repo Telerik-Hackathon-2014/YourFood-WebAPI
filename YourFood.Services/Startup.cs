@@ -3,14 +3,11 @@
     using System;
     using System.Linq;
     using System.Reflection;
-    using System.Web;
     using System.Web.Http;
     using Microsoft.Owin;
     using Ninject;
-    using Ninject.Web.Common;
     using Ninject.Web.Common.OwinHost;
     using Ninject.Web.WebApi;
-    using Ninject.Web.WebApi.OwinHost;
     using Owin;
     using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
@@ -21,8 +18,8 @@
         public void Configuration(IAppBuilder app)
         {
             this.ConfigureAuth(app);
-           // app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(GlobalConfiguration.Configuration);
-              app.UseNinjectMiddleware(CreateKernel);
+            //app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(GlobalConfiguration.Configuration);
+            app.UseNinjectMiddleware(CreateKernel);
             //CreateKernel();
         }
 
@@ -33,8 +30,8 @@
             //return kernel;
             var kernel = new StandardKernel();
             kernel.Load(Assembly.GetExecutingAssembly());
-           // kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-          //  kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+            // kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+            //  kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
             RegisterMappings(kernel);
 
