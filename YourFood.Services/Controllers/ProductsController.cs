@@ -5,41 +5,38 @@
     using System.Linq;
     using System.Net;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using System.Web.Http.OData;
-    using YourFood.Data.DbContext;
     using YourFood.Models;
-   
-    public class ProductsController : ODataController
-    {
-        private YourFoodDbContext db = new YourFoodDbContext();
 
-        // GET: odata/Products
+    [EnableCors("*", "*", "*")]
+    public class ProductsController : BaseODataController
+    {
+        // GET: api/Products
         [EnableQuery]
         public IQueryable<Product> GetProducts()
         {
-            return this.db.Products;
+            return this.Data.Products.All();
         }
 
-        // GET: odata/Products(5)
+        // GET: api/Products(5)
         [EnableQuery]
-        public SingleResult<Product> GetProduct([FromODataUri]
-                                                int key)
+        public SingleResult<Product> GetProduct([FromODataUri] int key)
         {
-            return SingleResult.Create(this.db.Products.Where(product => product.Id == key));
+            return SingleResult.Create(this.Data.Products.All().Where(product => product.Id == key));
         }
 
-        // PUT: odata/Products(5)
-        public IHttpActionResult Put([FromODataUri]
-                                     int key, Delta<Product> patch)
+        // PUT: api/Products(5)
+        public IHttpActionResult Put([FromODataUri] int key, Delta<Product> patch)
         {
             this.Validate(patch.GetEntity());
 
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
-            Product product = this.db.Products.Find(key);
+            Product product = this.Data.Products.Find(key);
             if (product == null)
             {
                 return this.NotFound();
@@ -49,7 +46,7 @@
 
             try
             {
-                this.db.SaveChanges();
+                this.Data.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -66,33 +63,32 @@
             return this.Updated(product);
         }
 
-        // POST: odata/Products
+        // POST: api/Products
         public IHttpActionResult Post(Product product)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
-            this.db.Products.Add(product);
-            this.db.SaveChanges();
+            this.Data.Products.Add(product);
+            this.Data.SaveChanges();
 
             return this.Created(product);
         }
 
-        // PATCH: odata/Products(5)
+        // PATCH: api/Products(5)
         [AcceptVerbs("PATCH", "MERGE")]
-        public IHttpActionResult Patch([FromODataUri]
-                                       int key, Delta<Product> patch)
+        public IHttpActionResult Patch([FromODataUri] int key, Delta<Product> patch)
         {
             this.Validate(patch.GetEntity());
 
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
-            Product product = this.db.Products.Find(key);
+            Product product = this.Data.Products.Find(key);
             if (product == null)
             {
                 return this.NotFound();
@@ -102,7 +98,7 @@
 
             try
             {
-                this.db.SaveChanges();
+                this.Data.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -119,42 +115,31 @@
             return this.Updated(product);
         }
 
-        // DELETE: odata/Products(5)
-        public IHttpActionResult Delete([FromODataUri]
-                                        int key)
+        // DELETE: api/Products(5)
+        public IHttpActionResult Delete([FromODataUri] int key)
         {
-            Product product = this.db.Products.Find(key);
+            Product product = this.Data.Products.Find(key);
             if (product == null)
             {
                 return this.NotFound();
             }
 
-            this.db.Products.Remove(product);
-            this.db.SaveChanges();
+            this.Data.Products.Delete(product);
+            this.Data.SaveChanges();
 
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET: odata/Products(5)/Category
+        // GET: api/Products(5)/Category
         [EnableQuery]
-        public SingleResult<ProductCategory> GetCategory([FromODataUri]
-                                                         int key)
+        public SingleResult<ProductCategory> GetCategory([FromODataUri] int key)
         {
-            return SingleResult.Create(this.db.Products.Where(m => m.Id == key).Select(m => m.Category));
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.db.Dispose();
-            }
-            base.Dispose(disposing);
+            return SingleResult.Create(this.Data.Products.All().Where(m => m.Id == key).Select(m => m.Category));
         }
 
         private bool ProductExists(int key)
         {
-            return this.db.Products.Count(e => e.Id == key) > 0;
+            return this.Data.Products.All().Count(e => e.Id == key) > 0;
         }
     }
 }

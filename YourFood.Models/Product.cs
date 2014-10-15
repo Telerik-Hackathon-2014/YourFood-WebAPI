@@ -16,7 +16,6 @@
         [Required]
         public string ImageUrl { get; set; }
 
-        [Required]
         public double MeasurementUnit { get; set; }
 
         public UnitType UnitType { get; set; }
