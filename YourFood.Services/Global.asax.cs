@@ -20,7 +20,7 @@
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            this.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+       //     this.Response.Headers.Add("Access-Control-Allow-Origin", "*");
         }
     }
 }
