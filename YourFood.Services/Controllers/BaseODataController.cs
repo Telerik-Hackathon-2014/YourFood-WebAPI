@@ -4,18 +4,12 @@
     using System.Linq;
     using System.Web.Http.Cors;
     using System.Web.Http.OData;
-    using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
 
     [EnableCors("*", "*", "*")]
     public class BaseODataController : ODataController
     {
         private IYourFoodData data;
-
-        public BaseODataController()
-            : this(new YourFoodData(new YourFoodDbContext()))
-        {
-        }
 
         public BaseODataController(IYourFoodData data)
         {

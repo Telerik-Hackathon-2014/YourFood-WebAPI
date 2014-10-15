@@ -7,11 +7,17 @@
     using System.Web.Http;
     using System.Web.Http.Cors;
     using System.Web.Http.OData;
+    using YourFood.Data.UoW;
     using YourFood.Models;
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : BaseODataController
     {
+        public ProductsController(IYourFoodData yourFoodData)
+            : base(yourFoodData)
+        {
+        }
+
         // GET: api/Products
         [HttpGet]
         [EnableQuery]
