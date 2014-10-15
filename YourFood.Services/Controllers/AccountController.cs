@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net.Http;
     using System.Security.Claims;
     using System.Security.Cryptography;
@@ -14,6 +15,7 @@
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
+    using Newtonsoft.Json;
     using YourFood.Models;
     using YourFood.Services.Models;
     using YourFood.Services.Providers;
@@ -120,7 +122,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             IdentityResult result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId(), model.OldPassword,
@@ -140,7 +142,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             IdentityResult result = await this.UserManager.AddPasswordAsync(this.User.Identity.GetUserId(), model.NewPassword);
@@ -159,7 +161,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             this.Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
@@ -197,7 +199,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             IdentityResult result;
@@ -229,7 +231,7 @@
         {
             if (error != null)
             {
-                return this.Redirect(Url.Content("~/") + "#error=" + Uri.EscapeDataString(error));
+                return this.Redirect(this.Url.Content("~/") + "#error=" + Uri.EscapeDataString(error));
             }
 
             if (!this.User.Identity.IsAuthenticated)
@@ -264,7 +266,8 @@
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(this.UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                var roles = oAuthIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, JsonConvert.SerializeObject(roles.Select(x => x.Value)));
                 this.Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -325,7 +328,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             var user = new User() { UserName = model.Email, Email = model.Email };
@@ -348,7 +351,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             var info = await this.Authentication.GetExternalLoginInfoAsync();
@@ -416,7 +419,7 @@
                     return this.BadRequest();
                 }
 
-                return this.BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             return null;
@@ -492,6 +495,7 @@
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }
+        
         #endregion
     }
 }

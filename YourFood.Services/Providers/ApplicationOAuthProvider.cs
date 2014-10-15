@@ -9,6 +9,7 @@
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
+    using Newtonsoft.Json;
     using YourFood.Models;
 
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
@@ -25,11 +26,12 @@
             this._publicClientId = publicClientId;
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(string userName, string roles)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                { "roles", roles }
             };
             return new AuthenticationProperties(data);
         }
@@ -51,7 +53,8 @@
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            List<Claim> roles = oAuthIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
+            AuthenticationProperties properties = CreateProperties(user.UserName, JsonConvert.SerializeObject(roles.Select(x => x.Value)));
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);

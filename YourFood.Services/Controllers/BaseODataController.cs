@@ -2,16 +2,16 @@
 {
     using System;
     using System.Linq;
-    using System.Web.Http;
     using System.Web.Http.Cors;
+    using System.Web.Http.OData;
     using YourFood.Data.UoW;
 
     [EnableCors("*", "*", "*")]
-    public class BaseApiController : ApiController
+    public class BaseODataController : ODataController
     {
         private IYourFoodData data;
 
-        public BaseApiController(IYourFoodData data)
+        public BaseODataController(IYourFoodData data)
         {
             this.data = data;
         }

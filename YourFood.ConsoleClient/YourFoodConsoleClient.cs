@@ -5,6 +5,7 @@
     using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
     using YourFood.Models;
+    using YourFood.Models.Enums;
 
     public class YourFoodConsoleClient
     {
@@ -26,7 +27,7 @@
 
             yourFoodData.CatalogProducts.Add(new CatalogProduct()
             {
-                LifeTimePeriod = new TimeSpan(5, 20, 5, 2),
+                LifetimeInDays = 5,
                 Product = new Product()
                 {
                     Category = new ProductCategory()
@@ -34,14 +35,15 @@
                         Name = "Food"
                     },
                     ImageUrl = "sample",
-                    MeasurementUnit = "kg",
+                    UnitType = UnitType.Kilograms,
+                    MeasurementUnit = 5,
                     Name = "eggs"
                 }
             });
 
             yourFoodData.SaveChanges();
 
-            Console.WriteLine(yourFoodData.CatalogProducts.All().First().LifeTimePeriod);
+            Console.WriteLine(yourFoodData.CatalogProducts.All().First().LifetimeInDays);
         }
     }
 }

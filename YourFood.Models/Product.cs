@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+    using YourFood.Models.Enums;
 
     public class Product
     {
@@ -16,7 +17,9 @@
         public string ImageUrl { get; set; }
 
         [Required]
-        public string MeasurementUnit { get; set; }
+        public double MeasurementUnit { get; set; }
+
+        public UnitType UnitType { get; set; }
 
         public int CategoryId { get; set; }
 
