@@ -25,10 +25,10 @@
             CreateKernel();
         }
 
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-            this.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-        }
+        //protected void Application_BeginRequest(object sender, EventArgs e)
+        //{
+        //    this.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        //}
 
         private static IKernel CreateKernel()
         {
