@@ -10,7 +10,7 @@ namespace YourFood.Data.DbContext
     public class YourFoodDbContext : IdentityDbContext<User>, IYourFoodDbContext
     {
         public YourFoodDbContext()
-            : base(ConnectionStrings.CloudDatabaseConnection, throwIfV1Schema: false)
+            : base(ConnectionStrings.DefaultConnection, throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<YourFoodDbContext, Configuration>());
         }

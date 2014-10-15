@@ -9,11 +9,13 @@
     using System.Web.Http.OData;
     using YourFood.Models;
 
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : BaseODataController
     {
         // GET: api/Products
+        [HttpGet]
         [EnableQuery]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<Product> GetProducts()
         {
             return this.Data.Products.All();
