@@ -21,7 +21,6 @@
         // GET: api/Products
         [HttpGet]
         [EnableQuery]
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<Product> GetProducts()
         {
             return this.Data.Products.All();

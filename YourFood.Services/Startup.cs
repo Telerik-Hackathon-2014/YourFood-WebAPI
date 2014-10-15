@@ -10,7 +10,6 @@
     using Ninject.Web.Common;
     using Ninject.Web.Common.OwinHost;
     using Ninject.Web.WebApi;
-    using Ninject.Web.WebApi.OwinHost;
     using Owin;
     using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
@@ -21,9 +20,9 @@
         public void Configuration(IAppBuilder app)
         {
             this.ConfigureAuth(app);
-            //app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(GlobalConfiguration.Configuration);
-
-            CreateKernel();
+            // app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(GlobalConfiguration.Configuration);
+            app.UseNinjectMiddleware(CreateKernel);
+            //CreateKernel();
         }
 
         private static StandardKernel CreateKernel()
@@ -36,10 +35,10 @@
             kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-           RegisterMappings(kernel);
+            RegisterMappings(kernel);
 
             // Install our Ninject-based IDependencyResolver into the Web API config
-            GlobalConfiguration.Configuration.DependencyResolver = new App_Start.NinjectDependencyResolver(kernel);
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
 
             return kernel;
         }
