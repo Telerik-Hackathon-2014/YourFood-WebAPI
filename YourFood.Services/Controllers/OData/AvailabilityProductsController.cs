@@ -1,4 +1,4 @@
-﻿namespace YourFood.Services.Controllers
+﻿namespace YourFood.Services.Controllers.OData
 {
     using System;
     using System.Data.Entity.Infrastructure;
@@ -86,45 +86,6 @@
             this.Data.SaveChanges();
 
             return this.Created(availabilityProduct);
-        }
-
-        // PATCH: api/AvailabilityProducts(5)
-        [AcceptVerbs("PATCH", "MERGE")]
-        public IHttpActionResult Patch([FromODataUri]
-                                       int key, Delta<AvailabilityProduct> patch)
-        {
-            this.Validate(patch.GetEntity());
-
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest(this.ModelState);
-            }
-
-            AvailabilityProduct availabilityProduct = this.Data.AvailabilityProducts.Find(key);
-            if (availabilityProduct == null)
-            {
-                return this.NotFound();
-            }
-
-            patch.Patch(availabilityProduct);
-
-            try
-            {
-                this.Data.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!this.AvailabilityProductExists(key))
-                {
-                    return this.NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return this.Updated(availabilityProduct);
         }
 
         // DELETE: api/AvailabilityProducts(5)

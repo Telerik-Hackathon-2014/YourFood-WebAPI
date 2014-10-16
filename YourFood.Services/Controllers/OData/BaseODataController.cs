@@ -1,4 +1,4 @@
-﻿namespace YourFood.Services.Controllers
+﻿namespace YourFood.Services.Controllers.OData
 {
     using System;
     using System.Linq;

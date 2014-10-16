@@ -1,4 +1,4 @@
-﻿namespace YourFood.Services.Controllers
+﻿namespace YourFood.Services.Controllers.OData
 {
     using System;
     using System.Data.Entity.Infrastructure;
@@ -89,45 +89,6 @@
             return this.Created(product);
         }
 
-        // PATCH: api/Products(5)
-        [AcceptVerbs("PATCH", "MERGE")]
-        public IHttpActionResult Patch([FromODataUri]
-                                       int key, Delta<Product> patch)
-        {
-            this.Validate(patch.GetEntity());
-
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest(this.ModelState);
-            }
-
-            Product product = this.Data.Products.Find(key);
-            if (product == null)
-            {
-                return this.NotFound();
-            }
-
-            patch.Patch(product);
-
-            try
-            {
-                this.Data.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!this.ProductExists(key))
-                {
-                    return this.NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return this.Updated(product);
-        }
-
         // DELETE: api/Products(5)
         public IHttpActionResult Delete([FromODataUri]
                                         int key)
@@ -149,11 +110,11 @@
         public SingleResult<ProductCategory> GetCategory([FromODataUri]
                                                          int key)
         {
-            var product = this.Data.Products.All()
-                              .Where(m => m.Id == key)
-                              .Select(m => m.Category);
+            var category = this.Data.Products.All()
+                               .Where(m => m.Id == key)
+                               .Select(m => m.Category);
 
-            return SingleResult.Create(product);
+            return SingleResult.Create(category);
         }
 
         private bool ProductExists(int key)

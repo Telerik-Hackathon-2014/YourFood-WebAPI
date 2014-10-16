@@ -17,7 +17,7 @@ namespace YourFood.Data.DbContext
 
         IDbSet<Recipe> Recipes { get; set; }
 
-        IDbSet<RecipeCategory> RecipeCategoriess { get; set; }
+        IDbSet<RecipeCategory> RecipeCategories { get; set; }
 
         IDbSet<RecipeProduct> RecipeProducts { get; set; }
 

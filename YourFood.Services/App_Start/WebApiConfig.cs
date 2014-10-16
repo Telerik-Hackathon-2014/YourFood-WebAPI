@@ -16,7 +16,10 @@
         {
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<AvailabilityProduct>("AvailabilityProducts");
+            builder.EntitySet<CatalogProduct>("CatalogProducts");
             builder.EntitySet<Product>("Products");
+            builder.EntitySet<Recipe>("Recipes");
+            builder.EntitySet<RecipeCategory>("RecipeCategories"); 
             builder.EntitySet<ProductCategory>("ProductCategories"); 
             config.Routes.MapODataServiceRoute("api", "api", builder.GetEdmModel());
 

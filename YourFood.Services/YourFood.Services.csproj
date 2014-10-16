@@ -239,10 +239,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AvailabilityProductsController.cs" />
-    <Compile Include="Controllers\BaseODataController.cs" />
+    <Compile Include="Controllers\OData\AvailabilityProductsController.cs" />
+    <Compile Include="Controllers\OData\BaseODataController.cs" />
+    <Compile Include="Controllers\OData\CatalogProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\OData\ProductsController.cs" />
+    <Compile Include="Controllers\OData\RecipesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
