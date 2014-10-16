@@ -316,6 +316,10 @@
       <Project>{B0450E7E-982E-4DC1-9727-EF16F76DCCA5}</Project>
       <Name>YourFood.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YourFood.EverliveAPI\YourFood.EverliveAPI.csproj">
+      <Project>{27B28DBA-10B7-4004-8B72-89C0273003DD}</Project>
+      <Name>YourFood.EverliveAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YourFood.Models\YourFood.Models.csproj">
       <Project>{8EC6C6B4-B405-4844-9F8C-A7A41341E987}</Project>
       <Name>YourFood.Models</Name>

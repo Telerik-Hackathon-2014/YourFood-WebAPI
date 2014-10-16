@@ -11,6 +11,8 @@
     using Owin;
     using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
+    using YourFood.EverliveAPI;
+    using YourFood.EverliveAPI.Contracts;
 
     [assembly: OwinStartup(typeof(Startup))]
 
@@ -36,6 +38,8 @@
             kernel.Bind<IYourFoodData>()
                   .To<YourFoodData>()
                   .WithConstructorArgument("context", c => new YourFoodDbContext());
+
+            kernel.Bind<IImageUploader>().To<ImageUploader>();
         }
     }
 }

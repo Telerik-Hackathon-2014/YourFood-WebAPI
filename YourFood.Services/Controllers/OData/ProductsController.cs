@@ -8,14 +8,18 @@
     using System.Web.Http.Cors;
     using System.Web.Http.OData;
     using YourFood.Data.UoW;
+    using YourFood.EverliveAPI.Contracts;
     using YourFood.Models;
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : BaseODataController
     {
-        public ProductsController(IYourFoodData yourFoodData)
+        private readonly IImageUploader imageUploader;
+
+        public ProductsController(IYourFoodData yourFoodData, IImageUploader imageUploader)
             : base(yourFoodData)
         {
+            this.imageUploader = imageUploader;
         }
 
         // GET: api/Products
@@ -82,6 +86,9 @@
             {
                 return this.BadRequest(this.ModelState);
             }
+            
+            var imageUrl = this.imageUploader.UrlFromBase64Image(product.ImageUrl);
+            product.ImageUrl = imageUrl;
 
             this.Data.Products.Add(product);
             this.Data.SaveChanges();
