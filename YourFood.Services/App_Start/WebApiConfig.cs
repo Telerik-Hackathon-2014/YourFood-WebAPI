@@ -18,7 +18,7 @@
             builder.EntitySet<AvailabilityProduct>("AvailabilityProducts");
             builder.EntitySet<Product>("Products");
             builder.EntitySet<ProductCategory>("ProductCategories"); 
-            config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
+            config.Routes.MapODataServiceRoute("api", "api", builder.GetEdmModel());
 
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.

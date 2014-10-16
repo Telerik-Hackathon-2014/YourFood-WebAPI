@@ -28,13 +28,18 @@
 
         // GET: api/Products(5)
         [EnableQuery]
-        public SingleResult<Product> GetProduct([FromODataUri] int key)
+        public SingleResult<Product> GetProduct([FromODataUri]
+                                                int key)
         {
-            return SingleResult.Create(this.Data.Products.All().Where(product => product.Id == key));
+            var product = this.Data.Products.All()
+                              .Where(p => p.Id == key);
+
+            return SingleResult.Create(product);
         }
 
         // PUT: api/Products(5)
-        public IHttpActionResult Put([FromODataUri] int key, Delta<Product> patch)
+        public IHttpActionResult Put([FromODataUri]
+                                     int key, Delta<Product> patch)
         {
             this.Validate(patch.GetEntity());
 
@@ -86,7 +91,8 @@
 
         // PATCH: api/Products(5)
         [AcceptVerbs("PATCH", "MERGE")]
-        public IHttpActionResult Patch([FromODataUri] int key, Delta<Product> patch)
+        public IHttpActionResult Patch([FromODataUri]
+                                       int key, Delta<Product> patch)
         {
             this.Validate(patch.GetEntity());
 
@@ -123,9 +129,10 @@
         }
 
         // DELETE: api/Products(5)
-        public IHttpActionResult Delete([FromODataUri] int key)
+        public IHttpActionResult Delete([FromODataUri]
+                                        int key)
         {
-            Product product = this.Data.Products.Find(key);
+            var product = this.Data.Products.Find(key);
             if (product == null)
             {
                 return this.NotFound();
@@ -139,9 +146,14 @@
 
         // GET: api/Products(5)/Category
         [EnableQuery]
-        public SingleResult<ProductCategory> GetCategory([FromODataUri] int key)
+        public SingleResult<ProductCategory> GetCategory([FromODataUri]
+                                                         int key)
         {
-            return SingleResult.Create(this.Data.Products.All().Where(m => m.Id == key).Select(m => m.Category));
+            var product = this.Data.Products.All()
+                              .Where(m => m.Id == key)
+                              .Select(m => m.Category);
+
+            return SingleResult.Create(product);
         }
 
         private bool ProductExists(int key)
