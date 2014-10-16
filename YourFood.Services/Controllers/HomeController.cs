@@ -9,7 +9,6 @@
         public ActionResult Index()
         {
             this.ViewBag.Title = "YourFood - Home";
-
             return this.View();
         }
     }
