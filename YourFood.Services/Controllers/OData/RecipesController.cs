@@ -8,14 +8,18 @@
     using System.Web.Http.Cors;
     using System.Web.Http.OData;
     using YourFood.Data.UoW;
+    using YourFood.EverliveAPI.Contracts;
     using YourFood.Models;
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class RecipesController : BaseODataController
     {
-        public RecipesController(IYourFoodData yourFoodData)
+        private readonly IImageUploader imageUploader;
+
+        public RecipesController(IYourFoodData yourFoodData, IImageUploader imageUploader)
             : base(yourFoodData)
         {
+            this.imageUploader = imageUploader;
         }
 
         // GET: api/Recipes
@@ -81,6 +85,9 @@
             {
                 return this.BadRequest(this.ModelState);
             }
+
+            var imageUrl = this.imageUploader.UrlFromBase64Image(recipe.ImageUrl);
+            recipe.ImageUrl = imageUrl;
 
             this.Data.Recipes.Add(recipe);
             this.Data.SaveChanges();

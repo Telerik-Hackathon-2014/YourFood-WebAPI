@@ -19,7 +19,8 @@
             builder.EntitySet<CatalogProduct>("CatalogProducts");
             builder.EntitySet<Product>("Products");
             builder.EntitySet<Recipe>("Recipes");
-            builder.EntitySet<RecipeCategory>("RecipeCategories"); 
+            builder.EntitySet<RecipeCategory>("RecipeCategories");
+            builder.EntitySet<RecipeProduct>("RecipeProducts"); 
             builder.EntitySet<ProductCategory>("ProductCategories"); 
             config.Routes.MapODataServiceRoute("api", "api", builder.GetEdmModel());
 
