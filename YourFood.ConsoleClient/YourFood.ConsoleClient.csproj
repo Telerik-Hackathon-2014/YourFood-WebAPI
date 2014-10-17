@@ -63,6 +63,10 @@
       <Project>{b0450e7e-982e-4dc1-9727-ef16f76dcca5}</Project>
       <Name>YourFood.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YourFood.EverliveAPI\YourFood.EverliveAPI.csproj">
+      <Project>{27b28dba-10b7-4004-8b72-89c0273003dd}</Project>
+      <Name>YourFood.EverliveAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YourFood.Models\YourFood.Models.csproj">
       <Project>{8ec6c6b4-b405-4844-9f8c-a7a41341e987}</Project>
       <Name>YourFood.Models</Name>

@@ -28,5 +28,11 @@
             var url = this.app.WorkWith().Files().GetFileDownloadUrl(uploadResult.Id);
             return url;
         }
+
+        public string UrlFromMemoryStream(MemoryStream imageStream)
+        {
+            var uploadResult = this.app.WorkWith().Files().Upload(new FileField("Url", Guid.NewGuid().ToString(), "image/jpeg", imageStream)).ExecuteSync();
+            return this.app.WorkWith().Files().GetFileDownloadUrl(uploadResult.Id);
+        }
     }
 }
