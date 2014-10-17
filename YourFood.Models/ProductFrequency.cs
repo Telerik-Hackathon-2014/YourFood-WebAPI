@@ -4,16 +4,16 @@
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
-    public class RecipeUsageRecord
+    public class ProductFrequency
     {
         [Key]
-        public int Id { get; set; }
+        public int ProductFrequencyId { get; set; }
 
-        public DateTime DateCooked { get; set; }
+        public int UsageCount { get; set; }
 
-        public int RecipeId { get; set; }
+        public int ProductId { get; set; }
 
-        public virtual Recipe Recipe { get; set; }
+        public virtual Product Product { get; set; }
 
         public string UserId { get; set; }
 

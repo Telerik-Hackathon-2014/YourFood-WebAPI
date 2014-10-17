@@ -20,6 +20,8 @@
             builder.EntitySet<ProductCategory>("ProductCategories");
             builder.EntitySet<Product>("Products"); 
             builder.EntitySet<Recipe>("Recipes");
+            builder.EntitySet<ProductFrequency>("ProductFrequencies");
+            builder.EntitySet<User>("Users");
             builder.EntitySet<RecipeCategory>("RecipeCategories");
             builder.EntitySet<RecipeProduct>("RecipeProducts"); 
             builder.EntitySet<ProductCategory>("ProductCategories"); 

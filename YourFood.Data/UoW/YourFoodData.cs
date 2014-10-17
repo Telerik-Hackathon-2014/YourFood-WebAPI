@@ -97,6 +97,14 @@
             }
         }
 
+        public IGenericRepository<ProductFrequency> ProductFrequencies
+        {
+            get
+            {
+                return this.GetRepository<ProductFrequency>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

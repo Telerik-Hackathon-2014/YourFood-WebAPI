@@ -24,5 +24,7 @@ namespace YourFood.Data.DbContext
         IDbSet<RecipeUsageRecord> RecipeUsageRecords { get; set; }
 
         IDbSet<ShoppingList> ShoppingLists { get; set; }
+
+        IDbSet<ProductFrequency> ProductFrequencies { get; set; }
     }
 }

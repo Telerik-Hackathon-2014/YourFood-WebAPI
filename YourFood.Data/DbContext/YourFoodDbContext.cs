@@ -33,6 +33,8 @@ namespace YourFood.Data.DbContext
 
         public IDbSet<ShoppingList> ShoppingLists { get; set; }
 
+        public IDbSet<ProductFrequency> ProductFrequencies { get; set; }
+
         public static YourFoodDbContext Create()
         {
             return new YourFoodDbContext();
