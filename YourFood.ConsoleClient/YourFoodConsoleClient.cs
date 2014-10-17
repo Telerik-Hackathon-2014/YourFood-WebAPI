@@ -57,13 +57,15 @@
                 return;
             }
 
+            string recipeImagesFolderPath = "..\\..\\images\recipe-images\\";
+
             // Strawberry pretzel salad
             var strawberryPretzelSalad = new Recipe()
             {
                 Name = "Strawberry Pretzel Salad",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Desert").Id,
                 Description = "Preheat oven to 350 degrees F (175 degrees C).\nCream butter or margarine with the brown sugar. Mix in the pretzels and pat mixture into the bottom of one 9x13 inch baking pan. Bake at 350 degrees F (175 degrees C) for 10 to 12 minutes. Set aside to cool.\nIn a medium bowl, dissolve the gelatin in the boiling water and stir in the strawberries. Chill until partially thickened.\nIn a small bowl beat the cream cheese and white sugar together until smooth. Fold in the whipped cream. Spread mixture over the top of the cooled crust, making sure to seal the edges. Chill then pour the gelatin mixture over he cream cheese layer. Chill until firm.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "strawberry-pretzel-salad.jpg"),
                 TimeToMakeInMinutes = 105
             };
 
@@ -129,7 +131,7 @@
                 Name = "Soft Chocolate Chip Cookies",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Desert").Id,
                 Description = "Preheat oven to 350 degrees F (175 degrees C). Sift together the flour and baking soda, set aside.\nIn a large bowl, cream together the butter, brown sugar, and white sugar. Beat in the instant pudding mix until blended. Stir in the eggs and vanilla. Blend in the flour mixture. Finally, stir in the chocolate chips and nuts. Drop cookies by rounded spoonfuls onto ungreased cookie sheets.\nBake for 10 to 12 minutes in the preheated oven. Edges should be golden brown.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "soft-chocolate-chip-cookies.jpg"),
                 TimeToMakeInMinutes = 100
             };
 
@@ -201,7 +203,7 @@
                 Name = "Zucchini Patties",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Appetizer").Id,
                 Description = "In a medium bowl, combine the zucchini, eggs, onion, flour, Parmesan cheese, mozzarella cheese, and salt. Stir well enough to distribute ingredients evenly.\nHeat a small amount of oil in a skillet over medium-high heat. Drop zucchini mixture by heaping tablespoonfuls, and cook for a few minutes on each side until golden.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "zucchini-patties.jpg"),
                 TimeToMakeInMinutes = 30
             };
 
@@ -261,7 +263,7 @@
                 Name = "Baked Lemon Chicken with Mushroom Sauce",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Main dish").Id,
                 Description = "Preheat oven to 400 degrees F (205 degrees C).\nPour olive oil in an 8x8-inch glass baking dish. Place the chicken breasts in the dish, coating each side with oil. Squeeze the juice of 1/2 lemon over each chicken breast. Slice the rest of the lemon and place a lemon slice on top of each chicken piece.\nBake in the preheated oven until no longer pink in the center and the juices run clear, 30 to 40 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C).\nMelt butter in a skillet over medium heat; add mushrooms. Cook and stir until mushrooms are brown and liquid is evaporated, about 6 minutes. Sprinkle flour over mushrooms and stir until coated. Add chicken broth, stirring to make a medium-thick sauce. Allow sauce to reduce, adjusting with a little more broth to make a creamy sauce. Add fresh parsley at the last minute. Spoon the sauce over the baked chicken breasts.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "baked-lemon-chicken-with-mushroom-sauce.jpg"),
                 TimeToMakeInMinutes = 55
             };
 
@@ -321,7 +323,7 @@
                 Name = "Buttermilk Pancakes",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Desert").Id,
                 Description = "In a large bowl, combine flour, sugar, baking powder, baking soda, and salt. In a separate bowl, beat together buttermilk, milk, eggs and melted butter. Keep the two mixtures separate until you are ready to cook.\nHeat a lightly oiled griddle or frying pan over medium high heat. You can flick water across the surface and if it beads up and sizzles, it's ready!\nPour the wet mixture into the dry mixture, using a wooden spoon or fork to blend. Stir until it's just blended together. Do not over stir! Pour or scoop the batter onto the griddle, using approximately 1/2 cup for each pancake. Brown on both sides and serve hot.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "buttermilk-pancakes.jpg"),
                 TimeToMakeInMinutes = 25
             };
 
@@ -387,7 +389,7 @@
                 Name = "Baked Pork Chops",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Main dish").Id,
                 Description = "Preheat oven to 350 degrees F (175 degrees C).\nRinse pork chops, pat dry, and season with garlic powder and seasoning salt to taste. Place the beaten eggs in a small bowl. Dredge the pork chops lightly in flour, dip in the egg, and coat liberally with bread crumbs.\nHeat the oil in a medium skillet over medium-high heat. Fry the pork chops 5 minutes per side, or until the breading appears well browned. Transfer the chops to a 9x13 inch baking dish, and cover with foil.\nBake in the preheated oven for 1 hour. While baking, combine the cream of mushroom soup, milk and white wine in a medium bowl. After the pork chops have baked for an hour, cover them with the soup mixture. Replace foil, and bake for another 30 minutes.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "baked-pork-chops.jpg"),
                 TimeToMakeInMinutes = 120
             };
 
@@ -459,7 +461,7 @@
                 Name = "Quinoa and Black Beans",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Vegetarian").Id,
                 Description = "Heat oil in a saucepan over medium heat; cook and stir onion and garlic until lightly browned, about 10 minutes.\nMix quinoa into onion mixture and cover with vegetable broth; season with cumin, cayenne pepper, salt, and pepper. Bring the mixture to a boil. Cover, reduce heat, and simmer until quinoa is tender and broth is absorbed, about 20 minutes.\nStir frozen corn into the saucepan, and continue to simmer until heated through, about 5 minutes; mix in the black beans and cilantro.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "quinoa-and-black-beans.jpg"),
                 TimeToMakeInMinutes = 50
             };
 
@@ -543,7 +545,7 @@
                 Name = "Deviled Eggs",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Appetizer").Id,
                 Description = "Place eggs in a pot of salted water. Bring the water to a boil, and let eggs cook in boiling water until they are hard boiled, approximately 10 to 15 minutes. Drain eggs, and let cool. Once cool, remove the shell, cut the eggs in half lengthwise and scoop out the yolks.\nPlace the yolks in a medium-size mixing bowl and mash them. Blend in vinegar, mayonnaise, mustard, salt and pepper. You may need to add more mayonnaise to hold the mixture together, but it should be slightly dry.\nCarefully put the egg yolk mixture back into the egg whites but do not pack it. There will be enough mixture so the whites are overfilled. Sprinkle with paprika. Place on bed of lettuce and/or garnish with parsley. Cool before serving.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "deviled-eggs.jpg"),
                 TimeToMakeInMinutes = 35
             };
 
@@ -603,7 +605,7 @@
                 Name = "Tangy Cucumber and Avocado Salad",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Salad").Id,
                 Description = "In a large bowl, combine cucumbers, avocados, and cilantro. Stir in garlic, onions, salt, and pepper. Squeeze lemon and lime over the top, and toss. Cover, and refrigerate at least 30 minutes.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "tangy-cucumber-and-avocado-salad.jpg"),
                 TimeToMakeInMinutes = 45
             };
 
@@ -669,7 +671,7 @@
                 Name = "Refreshing Cucumber Watermelon Salad",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Salad").Id,
                 Description = "Mix red onion with lime juice in a bowl; set side to marinate at least 10 minutes. Stir olive oil into mixture.\nToss watermelon, baby cucumbers, and feta cheese together in a large bowl. Pour the red onion mixture over the watermelon mixture; toss to coat. Sprinkle mint over the salad; toss.",
-                ImageUrl = "",
+                ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "refreshing-cucumber-watermelon-salad.jpg"),
                 TimeToMakeInMinutes = 25
             };
 
@@ -728,7 +730,7 @@
                 return;
             }
 
-            var recipeCategoryNames = new string[] { "Main dish", "Desert", "Salad", "Vegetarian" };
+            var recipeCategoryNames = new string[] { "Main dish", "Appetizer", "Desert", "Salad", "Soup", "Vegetarian", "Beverage" };
 
             for (int i = 0; i < recipeCategoryNames.Length; i++)
             {
@@ -854,34 +856,43 @@
             var nutCategory = yourFoodData.ProductCategories.All().FirstOrDefault(c => c.Name == "Nut");
             var flavorCategory = yourFoodData.ProductCategories.All().FirstOrDefault(c => c.Name == "Flavor");
             var pastryCategory = yourFoodData.ProductCategories.All().FirstOrDefault(c => c.Name == "Pastry");
+            var otherCategory = yourFoodData.ProductCategories.All().FirstOrDefault(c => c.Name == "Other");
 
             Tuple<string, string, ProductCategory, UnitType>[] productsInfo = new Tuple<string, string, ProductCategory, UnitType>[]
             {
                 new Tuple<string, string, ProductCategory, UnitType>("Apple", "apple.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Avocado", "avocado.jpg", fruitCategory, UnitType.Pieces),
-                new Tuple<string, string, ProductCategory, UnitType>("Baking soda", "baking-soda.jpg", seasoningCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Baking powder", "no-image.jpg", otherCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Baking soda", "baking-soda.jpg", otherCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Banana", "banana.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Beans", "beans.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Beef", "beef.jpg", meatCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Blueberry", "blueberry.jpg", fruitCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Black pepper", "salt-pepper-shaker.jpg", seasoningCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Blueberry", "blueberry.jpg", fruitCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Bread crumb", "no-image.jpg", pastryCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Broccoli", "broccoli.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Brown sugar", "brown-sugar.jpg", seasoningCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Brown sugar", "brown-sugar.jpg", seasoningCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Butter", "butter.jpg", dairyCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Buttermilk", "no-image.jpg", dairyCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Cabbage", "cabbage.jpg", vegetableCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Canned beans", "no-image.jpg", cannedCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Carrot", "carrot.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Chicken breast", "chicken-breast.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Chicken", "chicken.jpg", meatCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Chocolate", "chocolate.jpg", flavorCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Chocolate chips", "chocolate-chips.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Chicken broth", "no-image.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Chocolate", "chocolate.jpg", flavorCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Chocolate chips", "", flavorCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Cilantaro", "cilantaro.jpg", seasoningCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Corn", "corn.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Cream cheese", "cream-cheese.jpg", dairyCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Cream cheese", "", dairyCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Cucumber", "cucumber.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Cumin", "cumin.jpg", seasoningCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Eggs", "eggs.jpg", dairyCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Cumin", "cumin.jpg", seasoningCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Eggs", "eggs.jpg", dairyCategory, UnitType.Pieces),
+                new Tuple<string, string, ProductCategory, UnitType>("Feta cheese", "no-image.jpg", dairyCategory, UnitType.Pieces),
                 new Tuple<string, string, ProductCategory, UnitType>("Flour", "flour.jpg", pastryCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Fig", "fig.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Garlic", "garlic.jpg", vegetableCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Garlic powder", "no-image.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Grapefruit", "grapefruit.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Grapes", "grapes.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Iceberg salad", "iceberg-salad.jpg", vegetableCategory, UnitType.Kilograms),
@@ -890,12 +901,14 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Lemon", "lemon.jpg", fruitCategory, UnitType.Pieces),
                 new Tuple<string, string, ProductCategory, UnitType>("Lettuce", "lettuce.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Lime", "lime.jpg", fruitCategory, UnitType.Pieces),
+                new Tuple<string, string, ProductCategory, UnitType>("Lime juice", "no-image.jpg", fruitCategory, UnitType.Pieces),
                 new Tuple<string, string, ProductCategory, UnitType>("Mayonnaise", "mayonnaise.jpg", sauceCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Milk", "milk.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mint", "mint.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mozzarella", "mozzarella.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mustard", "mustard.jpg", sauceCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mushroom", "mushroom.jpg", vegetableCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Mushroom sauce", "no-image.jpg", sauceCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Olive Oil", "olive-oil.jpg", flavorCategory, UnitType.Milliliters),
                 new Tuple<string, string, ProductCategory, UnitType>("Onion", "onion.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Orange", "orange.jpg", fruitCategory, UnitType.Kilograms),
@@ -908,7 +921,7 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Pork", "pork.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Potato", "potato.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Pretzel", "pretzel.jpg", pastryCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Pudding mix", "pudding-mix.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Pudding mix", "", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Quinoa", "quinoa.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Red onion", "red-onion.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Red pepper", "red-pepper.jpg", seasoningCategory, UnitType.Kilograms),
@@ -919,14 +932,15 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Sausage", "sausage.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Spinach", "spinach.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Strawberries", "strawberries.jpg", fruitCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Sugar", "sugar.jpg", flavorCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Sugar", "", flavorCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Tomato", "tomato.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Turkey", "turkey.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Vanilla", "vanilla.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Vegetable broth", "no-image.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Vinegar", "vinegar.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Walnut", "walnut.jpg", nutCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Watermelon", "water-melon.jpg", fruitCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Water", "water.jpg", drinkCategory, UnitType.Milliliters),
+                new Tuple<string, string, ProductCategory, UnitType>("Water", "", drinkCategory, UnitType.Milliliters),
                 new Tuple<string, string, ProductCategory, UnitType>("Whip cream", "whip-cream.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("White cheese", "white-cheese.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("White wine", "white-wine.jpg", drinkCategory, UnitType.Kilograms),
@@ -935,10 +949,11 @@
             };
                         
             ImageUploader uploader = new ImageUploader();
+            string productsImagesFolderPath = "..\\..\\images\\product-images\\";
 
             for (int i = 0; i < productsInfo.Length; i++)
             {
-                var fileBytes = File.ReadAllBytes(productsInfo[i].Item2);
+                var fileBytes = File.ReadAllBytes(productsImagesFolderPath + productsInfo[i].Item2);
                 using (MemoryStream ms = new MemoryStream(fileBytes))
                 {
                     string pictureUrl = uploader.UrlFromMemoryStream(ms);
@@ -956,6 +971,20 @@
             Console.WriteLine("Products added.");          
         }
 
+        private static string GetUploadedImageUrl(string imagePath)
+        {
+            ImageUploader uploader = new ImageUploader();
+            var fileBytes = File.ReadAllBytes(imagePath);
+            string imageUrl = "";
+
+            using (MemoryStream ms = new MemoryStream(fileBytes))
+            {
+                imageUrl = uploader.UrlFromMemoryStream(ms);
+            }
+
+            return imageUrl;
+        }
+
         private static void SeedProductCategories()
         {
             if (yourFoodData.ProductCategories.All().Any())
@@ -965,7 +994,7 @@
 
             string[] categoryNames = 
             {
-                "Meat", "Fish", "Dairy", "Fruit", "Vegetable", "Sauce", "Cooked", "Canned", "Drink", "Nut", "Flavor", "Pastry" 
+                "Meat", "Fish", "Dairy", "Fruit", "Vegetable", "Sauce", "Cooked", "Canned", "Drink", "Nut", "Flavor", "Pastry", "Spice", "Dressing", "Other"
             };
 
             string[] categoryImages = { "" };
