@@ -3,3 +3,5 @@
 
 ## YourFood - ASP.NET WebAPI
 
+  * [Database Connection](https://github.com/Telerik-Hackathon-2014/YourFood-WebAPI/wiki/Database-connection)
+  * [Routes](https://github.com/Telerik-Hackathon-2014/YourFood-WebAPI/wiki/Routes)
