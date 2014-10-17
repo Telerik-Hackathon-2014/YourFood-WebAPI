@@ -65,7 +65,7 @@
             }
         }
 
-        public IGenericRepository<RecipeCategory> RecipeCategoriess
+        public IGenericRepository<RecipeCategory> RecipeCategories
         {
             get
             {

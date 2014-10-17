@@ -17,7 +17,8 @@
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<AvailabilityProduct>("AvailabilityProducts");
             builder.EntitySet<CatalogProduct>("CatalogProducts");
-            builder.EntitySet<Product>("Products");
+            builder.EntitySet<ProductCategory>("ProductCategories");
+            builder.EntitySet<Product>("Products"); 
             builder.EntitySet<Recipe>("Recipes");
             builder.EntitySet<RecipeCategory>("RecipeCategories");
             builder.EntitySet<RecipeProduct>("RecipeProducts"); 

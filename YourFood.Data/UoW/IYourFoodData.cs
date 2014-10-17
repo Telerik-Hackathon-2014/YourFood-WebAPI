@@ -19,7 +19,7 @@
 
         IGenericRepository<Recipe> Recipes { get; }
 
-        IGenericRepository<RecipeCategory> RecipeCategoriess { get; }
+        IGenericRepository<RecipeCategory> RecipeCategories { get; }
 
         IGenericRepository<RecipeProduct> RecipeProducts { get; }
 

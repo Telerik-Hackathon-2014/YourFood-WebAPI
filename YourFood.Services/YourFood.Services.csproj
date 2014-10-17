@@ -243,7 +243,9 @@
     <Compile Include="Controllers\OData\BaseODataController.cs" />
     <Compile Include="Controllers\OData\CatalogProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OData\ProductCategoriesController.cs" />
     <Compile Include="Controllers\OData\ProductsController.cs" />
+    <Compile Include="Controllers\OData\RecipeCategoriesController.cs" />
     <Compile Include="Controllers\OData\RecipesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
