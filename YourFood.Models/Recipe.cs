@@ -24,7 +24,7 @@ namespace YourFood.Models
         [Required]
         public string ImageUrl { get; set; }
       
-        public double TimeToMakeInMinutes { get; private set; }
+        public double TimeToMakeInMinutes { get; set; }
 
         public int CategoryId { get; set; }
 
