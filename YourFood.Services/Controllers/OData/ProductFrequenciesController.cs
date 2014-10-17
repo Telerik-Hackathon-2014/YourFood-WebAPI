@@ -5,10 +5,12 @@
     using System.Linq;
     using System.Net;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using System.Web.Http.OData;
     using YourFood.Data.UoW;
     using YourFood.Models;
 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductFrequenciesController : BaseODataController
     {
         public ProductFrequenciesController(IYourFoodData yourFoodData)
