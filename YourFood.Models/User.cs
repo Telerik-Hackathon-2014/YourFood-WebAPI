@@ -10,11 +10,13 @@
     {
         private ICollection<RecipeUsageRecord> recipeUsageRecords;
         private ICollection<ShoppingList> shoppingLists;
+        private ICollection<AvailabilityProduct> availabilityProducts;
 
         public User()
         {
             this.recipeUsageRecords = new HashSet<RecipeUsageRecord>();
             this.shoppingLists = new HashSet<ShoppingList>();
+            this.availabilityProducts = new HashSet<AvailabilityProduct>();
         }
 
         public virtual ICollection<ShoppingList> ShoppingLists
@@ -38,6 +40,18 @@
             set
             {
                 this.recipeUsageRecords = value;
+            }
+        }
+
+        public virtual ICollection<AvailabilityProduct> AvailabilityProducts
+        {
+            get
+            {
+                return this.availabilityProducts;
+            }
+            set
+            {
+                this.availabilityProducts = value;
             }
         }
         

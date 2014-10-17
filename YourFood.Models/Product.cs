@@ -16,12 +16,10 @@
         [Required]
         public string ImageUrl { get; set; }
 
-        public double MeasurementUnit { get; set; }
-
         public UnitType UnitType { get; set; }
 
         public int CategoryId { get; set; }
 
-        public ProductCategory Category { get; set; }
+        public virtual ProductCategory Category { get; set; }
     }
 }

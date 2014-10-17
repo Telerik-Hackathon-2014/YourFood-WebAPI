@@ -41,7 +41,6 @@
                     },
                     ImageUrl = "sample",
                     UnitType = UnitType.Kilograms,
-                    MeasurementUnit = 5,
                     Name = "eggs"
                 }
             });

@@ -28,7 +28,7 @@ namespace YourFood.Models
 
         public int CategoryId { get; set; }
 
-        public RecipeCategory Category { get; set; }
+        public virtual RecipeCategory Category { get; set; }
 
         public virtual ICollection<RecipeProduct> Ingredients
         {
