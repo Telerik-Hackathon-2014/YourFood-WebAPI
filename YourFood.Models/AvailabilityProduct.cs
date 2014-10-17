@@ -13,7 +13,7 @@
 
         public double CurrentQuantity { get; set; }
 
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
         public DateTime ExpirationDate { get; set; }
 

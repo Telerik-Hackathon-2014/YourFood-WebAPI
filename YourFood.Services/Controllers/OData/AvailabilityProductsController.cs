@@ -96,6 +96,7 @@
             // Check by UserId
             //
             availabilityProduct.UserId = this.userInfoProvider.GetUserId();
+            availabilityProduct.DateAdded = DateTime.Now;
 
             if (!this.ModelState.IsValid)
             {
