@@ -68,10 +68,10 @@
             };
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
-                {
-                    ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
-                    Quantity = 225,
-                });
+            {
+                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
+                Quantity = 225,
+            });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
@@ -744,7 +744,6 @@
             Console.WriteLine("Recipe categories added.");
         }
 
-
         private static void SeedCatalogProducts()
         {
             Dictionary<string, int> productLifetimes = new Dictionary<string, int>();
@@ -818,15 +817,15 @@
             productLifetimes.Add("Yellow cheese", 1);
             productLifetimes.Add("Zucchini", 1);
 
-            foreach(var item in productLifetimes)
+            foreach (var item in productLifetimes)
             {
                 var product = yourFoodData.Products.All().FirstOrDefault(p => p.Name == item.Key);
 
                 yourFoodData.CatalogProducts.Add(new CatalogProduct()
-                    {
-                        ProductId = product.Id,
-                        LifetimeInDays = item.Value
-                    });
+                {
+                    ProductId = product.Id,
+                    LifetimeInDays = item.Value
+                });
             }
 
             yourFoodData.SaveChanges();
@@ -941,14 +940,13 @@
                 var fileBytes = File.ReadAllBytes(productsInfo[i].Item2);
                 using (MemoryStream ms = new MemoryStream(fileBytes))
                 {
-                    string pictureUrl = uploader.UrlFromMemoryStream(ms);
                     yourFoodData.Products.Add(new Product()
-                        {
-                            Name = productsInfo[i].Item1,
-                            ImageUrl = uploader.UrlFromMemoryStream(ms),
-                            CategoryId = productsInfo[i].Item3.Id,
-                            UnitType = productsInfo[i].Item4
-                        });
+                    {
+                        Name = productsInfo[i].Item1,
+                        ImageUrl = uploader.UrlFromMemoryStream(ms),
+                        CategoryId = productsInfo[i].Item3.Id,
+                        UnitType = productsInfo[i].Item4
+                    });
                 }
             }
 
@@ -965,7 +963,7 @@
 
             string[] categoryNames = 
             {
-                "Meat", "Fish", "Dairy", "Fruit", "Vegetable", "Sauce", "Cooked", "Canned", "Drink", "Nut", "Flavor", "Pastry" 
+                "Meat", "Fish", "Dairy", "Fruit", "Vegetable", "Sauce", "Cooked", "Canned", "Drink", "Nut", "Flavor", "Pastry"
             };
 
             string[] categoryImages = { "" };
@@ -973,13 +971,13 @@
             for (int i = 0; i < categoryNames.Length; i++)
             {
                 yourFoodData.ProductCategories.Add(new ProductCategory()
-                    {
-                        Name = categoryNames[i]
-                    });
+                {
+                    Name = categoryNames[i]
+                });
             }
 
             yourFoodData.SaveChanges();
             Console.WriteLine("Product categories added.");
         }
-    }   
+    }
 }

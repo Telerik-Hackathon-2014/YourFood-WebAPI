@@ -27,6 +27,8 @@
 
         IGenericRepository<ShoppingList> ShoppingLists { get; }
 
+        IGenericRepository<ProductFrequency> ProductFrequencies { get; }
+
         int SaveChanges();
     }
 }
