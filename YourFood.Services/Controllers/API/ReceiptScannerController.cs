@@ -3,10 +3,13 @@
     using System;
     using System.Linq;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using System.Web.Http.Description;
     using YourFood.Data.UoW;
     using YourFood.Services.Models;
 
+    [Authorize]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ReceiptScannerController : BaseApiController
     {
         public ReceiptScannerController(IYourFoodData yourFoodData)
