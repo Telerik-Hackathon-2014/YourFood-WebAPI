@@ -29,6 +29,8 @@
 
         IGenericRepository<ProductFrequency> ProductFrequencies { get; }
 
+        IGenericRepository<Tag> Tags { get; }
+
         int SaveChanges();
     }
 }

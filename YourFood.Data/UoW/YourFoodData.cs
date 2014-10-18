@@ -105,6 +105,14 @@
             }
         }
 
+        public IGenericRepository<Tag> Tags
+        {
+            get
+            {
+                return this.GetRepository<Tag>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

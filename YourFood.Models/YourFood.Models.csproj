@@ -57,6 +57,7 @@
     <Compile Include="RecipeUsageRecord.cs" />
     <Compile Include="ShoppingList.cs" />
     <Compile Include="Enums\UnitType.cs" />
+    <Compile Include="Tag.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -26,5 +26,7 @@ namespace YourFood.Data.DbContext
         IDbSet<ShoppingList> ShoppingLists { get; set; }
 
         IDbSet<ProductFrequency> ProductFrequencies { get; set; }
+
+        IDbSet<Tag> Tags { get; set; }
     }
 }

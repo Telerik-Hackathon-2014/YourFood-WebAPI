@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourFood.Services", "YourFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourFood.EverliveAPI", "YourFood.EverliveAPI\YourFood.EverliveAPI.csproj", "{27B28DBA-10B7-4004-8B72-89C0273003DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiptScannerOCRS", "ReceiptScannerOCRS\ReceiptScannerOCRS.csproj", "{ECA99AC0-0574-42DA-AAE4-677D5BDAA9BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{27B28DBA-10B7-4004-8B72-89C0273003DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27B28DBA-10B7-4004-8B72-89C0273003DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27B28DBA-10B7-4004-8B72-89C0273003DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA99AC0-0574-42DA-AAE4-677D5BDAA9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA99AC0-0574-42DA-AAE4-677D5BDAA9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA99AC0-0574-42DA-AAE4-677D5BDAA9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA99AC0-0574-42DA-AAE4-677D5BDAA9BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -35,6 +35,8 @@ namespace YourFood.Data.DbContext
 
         public IDbSet<ProductFrequency> ProductFrequencies { get; set; }
 
+        public IDbSet<Tag> Tags { get; set; }
+
         public static YourFoodDbContext Create()
         {
             return new YourFoodDbContext();

@@ -59,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ReceiptScannerOCRS\ReceiptScannerOCRS.csproj">
+      <Project>{ECA99AC0-0574-42DA-AAE4-677D5BDAA9BB}</Project>
+      <Name>ReceiptScannerOCRS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YourFood.Data\YourFood.Data.csproj">
       <Project>{b0450e7e-982e-4dc1-9727-ef16f76dcca5}</Project>
       <Name>YourFood.Data</Name>

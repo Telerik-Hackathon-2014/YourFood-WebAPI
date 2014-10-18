@@ -4,7 +4,8 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
+    using System.Text.RegularExpressions;
+    using ReceiptScannerOCRS;
     using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
     using YourFood.EverliveAPI;
@@ -14,14 +15,19 @@
     public class YourFoodConsoleClient
     {
         private static readonly IYourFoodData yourFoodData = new YourFoodData(new YourFoodDbContext());
+        private static readonly ReceiptScannerTesseract receiptScanner = new ReceiptScannerTesseract();
 
         internal static void Main()
         {
-            SeedProductCategories();
-            SeedProducts();
-            SeedCatalogProducts();
-            SeedRecipeCategories();
-            SeedRecipes();
+            var textLines = receiptScanner.GetLines();
+            Console.WriteLine(string.Join(Environment.NewLine, textLines));
+
+            //SeedProductCategories();
+            //SeedProducts();
+            //SeedCatalogProducts();
+            //SeedRecipeCategories();
+            //SeedRecipes();
+            //SeedTags();
         }
  
         private static void SeedProductInDatabase()
@@ -55,7 +61,7 @@
         {
             if (yourFoodData.Recipes.All().Any())
             {
-            //    return;
+                //    return;
             }
 
             string recipeImagesFolderPath = "..\\..\\images\\recipe-images\\";
@@ -71,11 +77,11 @@
             };
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
-                {
-                    ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
-                    Quantity = 0.75,
-                    UnitType = UnitType.Cups
-                });
+            {
+                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
+                Quantity = 0.75,
+                UnitType = UnitType.Cups
+            });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
@@ -122,7 +128,7 @@
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Sugar").Id,
-                Quantity = 1,                
+                Quantity = 1,
                 UnitType = UnitType.Cups
             });
 
@@ -818,7 +824,7 @@
         {
             if (yourFoodData.RecipeCategories.All().Any())
             {
-             //   return;
+                //   return;
             }
 
             var recipeCategoryNames = new string[] { "Main dish", "Appetizer", "Desert", "Salad", "Soup", "Vegetarian", "Beverage" };
@@ -836,7 +842,6 @@
             yourFoodData.SaveChanges();
             Console.WriteLine("Recipe categories added.");
         }
-
 
         private static void SeedCatalogProducts()
         {
@@ -915,7 +920,7 @@
             productLifetimes.Add("Salmon", 2);
             productLifetimes.Add("Salt", 999);
             productLifetimes.Add("Sugar", 999);
-       //     productLifetimes.Add("Pepper", 18);
+            //     productLifetimes.Add("Pepper", 18);
             productLifetimes.Add("Sausage", 7);
             productLifetimes.Add("Spinach", 6);
             productLifetimes.Add("Strawberry", 5);
@@ -933,15 +938,15 @@
             productLifetimes.Add("Yellow cheese", 30);
             productLifetimes.Add("Zucchini", 6);
 
-            foreach(var item in productLifetimes)
+            foreach (var item in productLifetimes)
             {
                 var product = yourFoodData.Products.All().FirstOrDefault(p => p.Name == item.Key);
 
                 yourFoodData.CatalogProducts.Add(new CatalogProduct()
-                    {
-                        ProductId = product.Id,
-                        LifetimeInDays = item.Value
-                    });
+                {
+                    ProductId = product.Id,
+                    LifetimeInDays = item.Value
+                });
             }
 
             yourFoodData.SaveChanges();
@@ -953,7 +958,7 @@
         {
             if (yourFoodData.Products.All().Any())
             {
-           //     return;
+                //     return;
             }
 
             var meatCategory = yourFoodData.ProductCategories.All().FirstOrDefault(c => c.Name == "Meat");
@@ -1089,12 +1094,12 @@
                 {
                     string pictureUrl = uploader.UrlFromMemoryStream(ms);
                     yourFoodData.Products.Add(new Product()
-                        {
-                            Name = productsInfo[i].Item1,
-                            ImageUrl = pictureUrl,
-                            CategoryId = productsInfo[i].Item3.Id,
-                            UnitType = productsInfo[i].Item4
-                        });
+                    {
+                        Name = productsInfo[i].Item1,
+                        ImageUrl = pictureUrl,
+                        CategoryId = productsInfo[i].Item3.Id,
+                        UnitType = productsInfo[i].Item4
+                    });
                 }
             }
 
@@ -1120,7 +1125,7 @@
         {
             if (yourFoodData.ProductCategories.All().Any())
             {
-           //     return;
+                //     return;
             }
 
             string[] categoryNames = 
@@ -1133,13 +1138,46 @@
             for (int i = 0; i < categoryNames.Length; i++)
             {
                 yourFoodData.ProductCategories.Add(new ProductCategory()
-                    {
-                        Name = categoryNames[i]
-                    });
+                {
+                    Name = categoryNames[i]
+                });
             }
 
             yourFoodData.SaveChanges();
             Console.WriteLine("Product categories added.");
         }
-    }   
+
+        private static void SeedTags()
+        {
+            if (yourFoodData.Tags.All().Any())
+            {
+                return;
+            }
+
+            var productNames = yourFoodData.Products
+                                           .All()
+                                           .Select(p => new
+                                           {
+                                               Id = p.Id,
+                                               Word = p.Name.ToLower()
+                                           });
+
+            foreach (var product in productNames)
+            {
+                var matches = Regex.Matches(product.Word, @"\b\w{2,}\b");
+                var splittedWords = matches.Cast<Match>().Select(m => m.Value);
+
+                foreach (var word in splittedWords)
+                {
+                    yourFoodData.Tags.Add(new Tag()
+                    {
+                        ProductId = product.Id,
+                        Word = word
+                    });
+                }
+            }
+
+            yourFoodData.Tags.SaveChanges();
+        }
+    }
 }
