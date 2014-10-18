@@ -6,7 +6,7 @@
     public class ConnectionStrings
     {
         public const string DefaultConnection = @"Data Source=.\sqlexpress;Initial Catalog=YourFood;Integrated Security=True";
-        public const string CloudDatabaseConnection = @"Server=49efb363-8dcb-4c0c-8a29-a3c4014b3d99.sqlserver.sequelizer.com;Database=db49efb3638dcb4c0c8a29a3c4014b3d99;User ID=vdiumcqovosjusyr;Password=cLpSyJuD8Uqvx6rndvFBhcUdgKcXsAHowbUkeHGqVYYRXrk4pEszkDGaZmKWGDmE;";
+        public const string CloudDatabaseConnection = @"Server=1ea8c815-907c-4522-b728-a3c800e5bde9.sqlserver.sequelizer.com;Database=db1ea8c815907c4522b728a3c800e5bde9;User ID=wrvjkpafltseffou;Password=ADWaHKWxADxZTXSz2X6XrqQaBhjveCkcj3v4RN6r3B34oiAKbsrwpTEjVWFAzzs7;";
         public const string EverliveAppKey = "Co6BSJivwBpDikcY";
     }
 }
