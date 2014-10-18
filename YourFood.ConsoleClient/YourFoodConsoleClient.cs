@@ -460,7 +460,7 @@
             {
                 Name = "Quinoa and Black Beans",
                 CategoryId = yourFoodData.RecipeCategories.All().FirstOrDefault(rc => rc.Name == "Vegetarian").Id,
-                Description = "Heat oil in a saucepan over medium heat; cook and stir onion and garlic until lightly browned, about 10 minutes.\nMix quinoa into onion mixture and cover with vegetable broth; season with cumin, cayenne pepper, salt, and pepper. Bring the mixture to a boil. Cover, reduce heat, and simmer until quinoa is tender and broth is absorbed, about 20 minutes.\nStir frozen corn into the saucepan, and continue to simmer until heated through, about 5 minutes; mix in the black beans and cilantro.",
+                Description = "Heat oil in a saucepan over medium heat; cook and stir onion and garlic until lightly browned, about 10 minutes.\nMix quinoa into onion mixture and cover with vegetable broth; season with cumin, cayenne pepper, salt, and pepper. Bring the mixture to a boil. Cover, reduce heat, and simmer until quinoa is tender and broth is absorbed, about 20 minutes.\nStir frozen corn into the saucepan, and continue to simmer until heated through, about 5 minutes; mix in the black beans and coriander.",
                 ImageUrl = GetUploadedImageUrl(recipeImagesFolderPath + "quinoa-and-black-beans.jpg"),
                 TimeToMakeInMinutes = 50
             };
@@ -533,7 +533,7 @@
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
-                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cilantro").Id,
+                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Coriander").Id,
                 Quantity = 25,
             });
 
@@ -750,29 +750,39 @@
         private static void SeedCatalogProducts()
         {
             Dictionary<string, int> productLifetimes = new Dictionary<string, int>();
-            productLifetimes.Add("Apple", 1);
-            productLifetimes.Add("Avocado", 1);
-            productLifetimes.Add("Baking soda", 1);
-            productLifetimes.Add("Banana", 1);
-            productLifetimes.Add("Beans", 1);
-            productLifetimes.Add("Beef", 1);
-            productLifetimes.Add("Blueberry", 1);
-            productLifetimes.Add("Broccoli", 1);
-            productLifetimes.Add("Brown sugar", 1);
-            productLifetimes.Add("Butter", 1);
-            productLifetimes.Add("Cabbage", 1);
-            productLifetimes.Add("Carrot", 1);
-            productLifetimes.Add("Chicken breast", 1);
-            productLifetimes.Add("Chicken", 1);
-            productLifetimes.Add("Chocolate", 1);
-            productLifetimes.Add("Cilantaro", 1);
-            productLifetimes.Add("Corn", 1);
-            productLifetimes.Add("Cucumber", 1);
-            productLifetimes.Add("Cumin", 1);
-            productLifetimes.Add("Eggs", 1);
-            productLifetimes.Add("Flour", 1);
+            productLifetimes.Add("Apple", 45);
+            productLifetimes.Add("Avocado", 8);
+            productLifetimes.Add("Baking powder", 999);
+            productLifetimes.Add("Baking soda", 999);
+            productLifetimes.Add("Banana", 5);
+            productLifetimes.Add("Beans", 999);
+            productLifetimes.Add("Beef", 3);
+            productLifetimes.Add("Black pepper", 999);
+            productLifetimes.Add("Blueberry", 6);
+            productLifetimes.Add("Bread crumb", 180);
+            productLifetimes.Add("Broccoli", 4);
+            productLifetimes.Add("Brown sugar", 999);
+            productLifetimes.Add("Butter", 30);
+            productLifetimes.Add("Buttermilk", 14);
+            productLifetimes.Add("Cabbage", 8);
+            productLifetimes.Add("Canned beans", 4);
+            productLifetimes.Add("Carrot", 14);
+            productLifetimes.Add("Chicken breast", 2);
+            productLifetimes.Add("Chicken", 2);
+            productLifetimes.Add("Chicken broth", 999);
+            productLifetimes.Add("Chocolate", 100);
+            productLifetimes.Add("Chocolate chips", 100);
+            productLifetimes.Add("Coriander", 9);
+            productLifetimes.Add("Corn", 7);
+            productLifetimes.Add("Cream cheese", 23);
+            productLifetimes.Add("Cucumber", 7);
+            productLifetimes.Add("Cumin", 999);
+            productLifetimes.Add("Eggs", 30);
+            productLifetimes.Add("Flour", 200);
+            productLifetimes.Add("Feta cheese", 1);
             productLifetimes.Add("Fig", 1);
             productLifetimes.Add("Garlic", 1);
+            productLifetimes.Add("Garlic powder", 1);
             productLifetimes.Add("Grapefruit", 1);
             productLifetimes.Add("Grapes", 1);
             productLifetimes.Add("Iceberg salad", 1);
@@ -781,10 +791,13 @@
             productLifetimes.Add("Lemon", 1);
             productLifetimes.Add("Lettuce", 1);
             productLifetimes.Add("Lime", 1);
+            productLifetimes.Add("Lime juice", 1);
             productLifetimes.Add("Mayonnaise", 1);
             productLifetimes.Add("Milk", 1);
             productLifetimes.Add("Mint", 1);
             productLifetimes.Add("Mozzarella", 1);
+            productLifetimes.Add("Mushroom", 1);
+            productLifetimes.Add("Mushroom sauce", 1);
             productLifetimes.Add("Mustard", 1);
             productLifetimes.Add("Olive Oil", 1);
             productLifetimes.Add("Onion", 1);
@@ -798,12 +811,14 @@
             productLifetimes.Add("Pork", 1);
             productLifetimes.Add("Potato", 1);
             productLifetimes.Add("Pretzel", 1);
+            productLifetimes.Add("Pudding mix", 1);
             productLifetimes.Add("Quinoa", 1);
             productLifetimes.Add("Red onion", 1);
             productLifetimes.Add("Red pepper", 1);
             productLifetimes.Add("Salamy", 1);
             productLifetimes.Add("Salmon", 1);
             productLifetimes.Add("Salt", 1);
+            productLifetimes.Add("Sugar", 1);
             productLifetimes.Add("Pepper", 1);
             productLifetimes.Add("Sausage", 1);
             productLifetimes.Add("Spinach", 1);
@@ -811,8 +826,10 @@
             productLifetimes.Add("Tomato", 1);
             productLifetimes.Add("Turkey", 1);
             productLifetimes.Add("Vanilla", 1);
+            productLifetimes.Add("Vegetable broth", 1);
             productLifetimes.Add("Vinegar", 1);
             productLifetimes.Add("Walnut", 1);
+            productLifetimes.Add("Water", 1);
             productLifetimes.Add("Water melon", 1);
             productLifetimes.Add("Whip cream", 1);
             productLifetimes.Add("White cheese", 1);
@@ -882,7 +899,7 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Chicken broth", "no-image.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Chocolate", "chocolate.jpg", flavorCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Chocolate chips", "", flavorCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Cilantaro", "cilantaro.jpg", seasoningCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Coriander", "coriander.jpg", seasoningCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Corn", "corn.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Cream cheese", "", dairyCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Cucumber", "cucumber.jpg", vegetableCategory, UnitType.Kilograms),
