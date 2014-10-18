@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
     using YourFood.Data.DbContext;
     using YourFood.Data.UoW;
     using YourFood.EverliveAPI;
@@ -16,11 +17,11 @@
 
         internal static void Main()
         {
-            //SeedProductCategories();
-            //SeedProducts();
-            //SeedCatalogProducts();
-            //SeedRecipeCategories();
-            //SeedRecipes();
+            SeedProductCategories();
+            SeedProducts();
+            SeedCatalogProducts();
+            SeedRecipeCategories();
+            SeedRecipes();
         }
  
         private static void SeedProductInDatabase()
@@ -54,10 +55,10 @@
         {
             if (yourFoodData.Recipes.All().Any())
             {
-                return;
+            //    return;
             }
 
-            string recipeImagesFolderPath = "..\\..\\images\recipe-images\\";
+            string recipeImagesFolderPath = "..\\..\\images\\recipe-images\\";
 
             // Strawberry pretzel salad
             var strawberryPretzelSalad = new Recipe()
@@ -202,7 +203,7 @@
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
-                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Chocolate cips").Id,
+                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Chocolate chips").Id,
                 Quantity = 4,
                 UnitType = UnitType.Cups
             });
@@ -699,7 +700,7 @@
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
-                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cilantro").Id,
+                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Coriander").Id,
                 Quantity = 4,
                 UnitType = UnitType.Tablespoons
             });
@@ -817,7 +818,7 @@
         {
             if (yourFoodData.RecipeCategories.All().Any())
             {
-                return;
+             //   return;
             }
 
             var recipeCategoryNames = new string[] { "Main dish", "Appetizer", "Desert", "Salad", "Soup", "Vegetarian", "Beverage" };
@@ -839,6 +840,11 @@
 
         private static void SeedCatalogProducts()
         {
+            if (yourFoodData.CatalogProducts.All().Any())
+            {
+                // return;
+            }
+
             Dictionary<string, int> productLifetimes = new Dictionary<string, int>();
             productLifetimes.Add("Apple", 45);
             productLifetimes.Add("Avocado", 8);
@@ -867,7 +873,7 @@
             productLifetimes.Add("Cream cheese", 23);
             productLifetimes.Add("Cucumber", 7);
             productLifetimes.Add("Cumin", 999);
-            productLifetimes.Add("Eggs", 30);
+            productLifetimes.Add("Egg", 30);
             productLifetimes.Add("Flour", 200);
             productLifetimes.Add("Feta cheese", 7);
             productLifetimes.Add("Fig", 6);
@@ -909,10 +915,10 @@
             productLifetimes.Add("Salmon", 2);
             productLifetimes.Add("Salt", 999);
             productLifetimes.Add("Sugar", 999);
-            productLifetimes.Add("Pepper", 18);
+       //     productLifetimes.Add("Pepper", 18);
             productLifetimes.Add("Sausage", 7);
             productLifetimes.Add("Spinach", 6);
-            productLifetimes.Add("Strawberries", 5);
+            productLifetimes.Add("Strawberry", 5);
             productLifetimes.Add("Tomato", 12);
             productLifetimes.Add("Turkey", 2);
             productLifetimes.Add("Vanilla", 999);
@@ -947,7 +953,7 @@
         {
             if (yourFoodData.Products.All().Any())
             {
-                return;
+           //     return;
             }
 
             var meatCategory = yourFoodData.ProductCategories.All().FirstOrDefault(c => c.Name == "Meat");
@@ -969,37 +975,37 @@
             {
                 new Tuple<string, string, ProductCategory, UnitType>("Apple", "apple.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Avocado", "avocado.jpg", fruitCategory, UnitType.Pieces),
-                new Tuple<string, string, ProductCategory, UnitType>("Baking powder", "no-image.jpg", otherCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Baking powder", "baking-powder.jpg", otherCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Baking soda", "baking-soda.jpg", otherCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Banana", "banana.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Beans", "beans.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Beef", "beef.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Black pepper", "salt-pepper-shaker.jpg", seasoningCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Blueberry", "blueberry.jpg", fruitCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Bread crumb", "no-image.jpg", pastryCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Bread crumb", "bread-crumb.jpg", pastryCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Broccoli", "broccoli.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Brown sugar", "brown-sugar.jpg", seasoningCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Butter", "butter.jpg", dairyCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Buttermilk", "no-image.jpg", dairyCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Buttermilk", "buttermilk.jpg", dairyCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Cabbage", "cabbage.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Canned beans", "no-image.jpg", cannedCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Canned beans", "canned-beans.jpg", cannedCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Carrot", "carrot.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Chicken breast", "chicken-breast.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Chicken", "chicken.jpg", meatCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Chicken broth", "no-image.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Chicken broth", "chicken-broth.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Chocolate", "chocolate.jpg", flavorCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Chocolate chips", "", flavorCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Chocolate chips", "chocolate-chips.jpg", flavorCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Coriander", "coriander.jpg", seasoningCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Corn", "corn.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Cream cheese", "", dairyCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Cream cheese", "cream-cheese.jpg", dairyCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Cucumber", "cucumber.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Cumin", "cumin.jpg", seasoningCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Eggs", "eggs.jpg", dairyCategory, UnitType.Pieces),
-                new Tuple<string, string, ProductCategory, UnitType>("Feta cheese", "no-image.jpg", dairyCategory, UnitType.Pieces),
+                new Tuple<string, string, ProductCategory, UnitType>("Egg", "egg.jpg", dairyCategory, UnitType.Pieces),
+                new Tuple<string, string, ProductCategory, UnitType>("Feta cheese", "feta-cheese.jpg", dairyCategory, UnitType.Pieces),
                 new Tuple<string, string, ProductCategory, UnitType>("Flour", "flour.jpg", pastryCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Fig", "fig.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Garlic", "garlic.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Garlic powder", "no-image.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Garlic powder", "garlic-powder.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Grapefruit", "grapefruit.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Grapes", "grapes.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Iceberg salad", "iceberg-salad.jpg", vegetableCategory, UnitType.Kilograms),
@@ -1008,14 +1014,14 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Lemon", "lemon.jpg", fruitCategory, UnitType.Pieces),
                 new Tuple<string, string, ProductCategory, UnitType>("Lettuce", "lettuce.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Lime", "lime.jpg", fruitCategory, UnitType.Pieces),
-                new Tuple<string, string, ProductCategory, UnitType>("Lime juice", "no-image.jpg", fruitCategory, UnitType.Pieces),
+                new Tuple<string, string, ProductCategory, UnitType>("Lime juice", "lime-juice.jpg", fruitCategory, UnitType.Pieces),
                 new Tuple<string, string, ProductCategory, UnitType>("Mayonnaise", "mayonnaise.jpg", sauceCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Milk", "milk.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mint", "mint.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mozzarella", "mozzarella.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mustard", "mustard.jpg", sauceCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Mushroom", "mushroom.jpg", vegetableCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Mushroom sauce", "no-image.jpg", sauceCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Mushroom sauce", "mushroom-sauce.jpg", sauceCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Olive Oil", "olive-oil.jpg", flavorCategory, UnitType.Milliliters),
                 new Tuple<string, string, ProductCategory, UnitType>("Onion", "onion.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Orange", "orange.jpg", fruitCategory, UnitType.Kilograms),
@@ -1028,7 +1034,7 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Pork", "pork.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Potato", "potato.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Pretzel", "pretzel.jpg", pastryCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Pudding mix", "", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Pudding mix", "pudding-mix.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Quinoa", "quinoa.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Red onion", "red-onion.jpg", fruitCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Red pepper", "red-pepper.jpg", seasoningCategory, UnitType.Kilograms),
@@ -1038,16 +1044,16 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Black pepper", "salt-pepper-shaker.jpg", seasoningCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Sausage", "sausage.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Spinach", "spinach.jpg", vegetableCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Strawberries", "strawberries.jpg", fruitCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Sugar", "", flavorCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Strawberry", "strawberry.jpg", fruitCategory, UnitType.Grams),
+                new Tuple<string, string, ProductCategory, UnitType>("Sugar", "cane-sugar.jpg", flavorCategory, UnitType.Grams),
                 new Tuple<string, string, ProductCategory, UnitType>("Tomato", "tomato.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Turkey", "turkey.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Vanilla", "vanilla.jpg", flavorCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Vegetable broth", "no-image.jpg", flavorCategory, UnitType.Kilograms),
+                new Tuple<string, string, ProductCategory, UnitType>("Vegetable broth", "vegetable-broth.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Vinegar", "vinegar.jpg", flavorCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Walnut", "walnut.jpg", nutCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Watermelon", "water-melon.jpg", fruitCategory, UnitType.Grams),
-                new Tuple<string, string, ProductCategory, UnitType>("Water", "", drinkCategory, UnitType.Milliliters),
+                new Tuple<string, string, ProductCategory, UnitType>("Water", "water.jpg", drinkCategory, UnitType.Milliliters),
                 new Tuple<string, string, ProductCategory, UnitType>("Whip cream", "whip-cream.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("White cheese", "white-cheese.jpg", dairyCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("White wine", "white-wine.jpg", drinkCategory, UnitType.Kilograms),
@@ -1056,18 +1062,36 @@
             };
                         
             ImageUploader uploader = new ImageUploader();
-            string productsImagesFolderPath = "..\\..\\images\\product-images\\";
+            string productsImagesFolderPath = "../../images/product-images/";
+
+            //Parallel.For(0, productsInfo.Length, (i) =>
+            //{
+            //    var fileBytes = File.ReadAllBytes(productsImagesFolderPath + productsInfo[i].Item2);
+
+            //    using (MemoryStream ms = new MemoryStream(fileBytes))
+            //    {
+            //        string pictureUrl = uploader.UrlFromMemoryStream(ms);
+            //        yourFoodData.Products.Add(new Product()
+            //        {
+            //            Name = productsInfo[i].Item1,
+            //            ImageUrl = pictureUrl,
+            //            CategoryId = productsInfo[i].Item3.Id,
+            //            UnitType = productsInfo[i].Item4
+            //        });
+            //    }
+            //});
 
             for (int i = 0; i < productsInfo.Length; i++)
             {
                 var fileBytes = File.ReadAllBytes(productsImagesFolderPath + productsInfo[i].Item2);
+
                 using (MemoryStream ms = new MemoryStream(fileBytes))
                 {
                     string pictureUrl = uploader.UrlFromMemoryStream(ms);
                     yourFoodData.Products.Add(new Product()
                         {
                             Name = productsInfo[i].Item1,
-                            ImageUrl = uploader.UrlFromMemoryStream(ms),
+                            ImageUrl = pictureUrl,
                             CategoryId = productsInfo[i].Item3.Id,
                             UnitType = productsInfo[i].Item4
                         });
@@ -1096,7 +1120,7 @@
         {
             if (yourFoodData.ProductCategories.All().Any())
             {
-                return;
+           //     return;
             }
 
             string[] categoryNames = 
