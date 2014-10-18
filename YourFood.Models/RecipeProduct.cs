@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+    using YourFood.Models.Enums;
 
     public class RecipeProduct
     {
@@ -18,6 +19,8 @@
         public int Id { get; set; }
 
         public double Quantity { get; set; }
+
+        public UnitType UnitType { get; set; }
 
         public int ProductId { get; set; }
 

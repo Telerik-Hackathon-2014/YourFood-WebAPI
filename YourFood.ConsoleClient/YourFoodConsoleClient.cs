@@ -779,9 +779,9 @@
             productLifetimes.Add("Cumin", 999);
             productLifetimes.Add("Eggs", 30);
             productLifetimes.Add("Flour", 200);
-            productLifetimes.Add("Feta cheese", 1);
-            productLifetimes.Add("Fig", 1);
-            productLifetimes.Add("Garlic", 1);
+            productLifetimes.Add("Feta cheese", 7);
+            productLifetimes.Add("Fig", 6);
+            productLifetimes.Add("Garlic", 3 * 30);
             productLifetimes.Add("Garlic powder", 1);
             productLifetimes.Add("Grapefruit", 1);
             productLifetimes.Add("Grapes", 1);

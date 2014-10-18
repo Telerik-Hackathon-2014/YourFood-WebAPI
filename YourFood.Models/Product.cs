@@ -16,6 +16,7 @@
         [Required]
         public string ImageUrl { get; set; }
 
+        [Obsolete("It's deprecated.")]
         public UnitType UnitType { get; set; }
 
         public int CategoryId { get; set; }
