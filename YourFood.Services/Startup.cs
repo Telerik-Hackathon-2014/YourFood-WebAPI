@@ -10,6 +10,7 @@
     using Ninject.Web.WebApi;
     using Owin;
     using YourFood.Data.DbContext;
+    using YourFood.Data.Infrastructure;
     using YourFood.Data.UoW;
     using YourFood.EverliveAPI;
     using YourFood.EverliveAPI.Contracts;
@@ -40,6 +41,7 @@
                   .WithConstructorArgument("context", c => new YourFoodDbContext());
 
             kernel.Bind<IImageUploader>().To<ImageUploader>();
+            kernel.Bind<IUserInfoProvider>().To<AspNetUserInfoProvider>();
         }
     }
 }

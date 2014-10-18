@@ -7,22 +7,31 @@
     using System.Web.Http;
     using System.Web.Http.Cors;
     using System.Web.Http.OData;
+    using YourFood.Data.Infrastructure;
     using YourFood.Data.UoW;
     using YourFood.Models;
 
+    [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AvailabilityProductsController : BaseODataController
     {
-        public AvailabilityProductsController(IYourFoodData yourFoodData)
+        private readonly IUserInfoProvider userInfoProvider;
+
+        public AvailabilityProductsController(IYourFoodData yourFoodData, IUserInfoProvider userInfoProvider)
             : base(yourFoodData)
         {
+            this.userInfoProvider = userInfoProvider;
         }
 
         // GET: api/AvailabilityProducts
         [EnableQuery]
         public IQueryable<AvailabilityProduct> GetAvailabilityProducts()
         {
-            return this.Data.AvailabilityProducts.All();
+            //
+            // Check by UserId
+            //
+            var userId = this.userInfoProvider.GetUserId();
+            return this.Data.AvailabilityProducts.All().Where(p => p.UserId == userId);
         }
 
         // GET: api/AvailabilityProducts(5)
@@ -30,6 +39,9 @@
         public SingleResult<AvailabilityProduct> GetAvailabilityProduct([FromODataUri]
                                                                         int key)
         {
+            //
+            // Check by UserId
+            //
             var product = this.Data.AvailabilityProducts.All()
                               .Where(availabilityProduct => availabilityProduct.Id == key);
 
@@ -40,6 +52,9 @@
         public IHttpActionResult Put([FromODataUri]
                                      int key, Delta<AvailabilityProduct> patch)
         {
+            //
+            // Check by UserId
+            //
             this.Validate(patch.GetEntity());
 
             if (!this.ModelState.IsValid)
@@ -77,6 +92,12 @@
         // POST: api/AvailabilityProducts
         public IHttpActionResult Post(AvailabilityProduct availabilityProduct)
         {
+            //
+            // Check by UserId
+            //
+            availabilityProduct.UserId = this.userInfoProvider.GetUserId();
+            availabilityProduct.DateAdded = DateTime.Now;
+
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
@@ -92,6 +113,9 @@
         public IHttpActionResult Delete([FromODataUri]
                                         int key)
         {
+            //
+            // Check by UserId
+            //
             var availabilityProduct = this.Data.AvailabilityProducts.Find(key);
             if (availabilityProduct == null)
             {
@@ -109,6 +133,9 @@
         public SingleResult<Product> GetProduct([FromODataUri]
                                                 int key)
         {
+            //
+            // Check by UserId
+            //
             var product = this.Data.AvailabilityProducts.All()
                               .Where(m => m.Id == key)
                               .Select(m => m.Product);

@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="DbContext\IYourFoodDbContext.cs" />
     <Compile Include="DbContext\YourFoodDbContext.cs" />
+    <Compile Include="Infrastructure\AspNetUserInfoProvider.cs" />
+    <Compile Include="Infrastructure\IUserInfoProvider.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UoW\IYourFoodData.cs" />
