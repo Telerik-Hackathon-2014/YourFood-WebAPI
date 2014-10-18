@@ -26,7 +26,7 @@
 
         public virtual Product Product { get; set; }
 
-        public int ShoppingListId { get; set; }
+        public int? ShoppingListId { get; set; }
 
         public virtual ShoppingList ShoppingList { get; set; }
 
