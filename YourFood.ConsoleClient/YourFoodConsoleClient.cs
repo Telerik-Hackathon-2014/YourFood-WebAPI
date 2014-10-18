@@ -72,55 +72,64 @@
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
                 {
                     ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
-                    Quantity = 225,
+                    Quantity = 0.75,
+                    UnitType = UnitType.Cups
                 });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Brown sugar").Id,
-                Quantity = 15,
+                Quantity = 3,
+                UnitType = UnitType.Tablespoons
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Pretzel").Id,
-                Quantity = 700,
+                Quantity = 2.5,
+                UnitType = UnitType.Cups
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Jell-O").Id,
                 Quantity = 170,
+                UnitType = UnitType.Grams
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Water").Id,
-                Quantity = 600,
+                Quantity = 2,
+                UnitType = UnitType.Cups
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Strawberry").Id,
-                Quantity = 450,
+                Quantity = 3,
+                UnitType = UnitType.Cups
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cream cheese").Id,
                 Quantity = 225,
+                UnitType = UnitType.Grams
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Sugar").Id,
-                Quantity = 200,
+                Quantity = 1,                
+                UnitType = UnitType.Cups
             });
 
             strawberryPretzelSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Whip cream").Id,
                 Quantity = 225,
+                UnitType = UnitType.Grams
             });
 
             yourFoodData.Recipes.Add(strawberryPretzelSalad);
@@ -138,61 +147,71 @@
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Flour").Id,
-                Quantity = 575,
+                Quantity = 4.5,
+                UnitType = UnitType.Cups
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Baking soda").Id,
-                Quantity = 10,
+                Quantity = 2,
+                UnitType = UnitType.Teaspoons
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
-                Quantity = 450,
+                Quantity = 2,
+                UnitType = UnitType.Cups
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Brown sugar").Id,
-                Quantity = 300,
+                Quantity = 1.5,
+                UnitType = UnitType.Cups
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Sugar").Id,
-                Quantity = 100,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Pudding mix").Id,
                 Quantity = 100,
+                UnitType = UnitType.Grams
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Egg").Id,
                 Quantity = 4,
+                UnitType = UnitType.Pieces
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Vanilla").Id,
-                Quantity = 9,
+                Quantity = 2,
+                UnitType = UnitType.Teaspoons
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Chocolate cips").Id,
-                Quantity = 500,
+                Quantity = 4,
+                UnitType = UnitType.Cups
             });
 
             softChocolateChipCookies.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Walnut").Id,
-                Quantity = 215,
+                Quantity = 2,
+                UnitType = UnitType.Cups
             });
 
             yourFoodData.Recipes.Add(softChocolateChipCookies);
@@ -210,49 +229,57 @@
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Zucchini").Id,
-                Quantity = 300,
+                Quantity = 2,
+                UnitType = UnitType.Cups
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Egg").Id,
                 Quantity = 2,
+                UnitType = UnitType.Pieces
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Onion").Id,
-                Quantity = 37,
+                Quantity = 0.25,
+                UnitType = UnitType.Cups
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Flour").Id,
-                Quantity = 68,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Parmesan").Id,
-                Quantity = 60,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Mozzarella").Id,
-                Quantity = 56,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
                 Quantity = 0,
+                UnitType = UnitType.Cups
             });
 
             zucchiniPatties.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Olive oil").Id,
-                Quantity = 9,
+                Quantity = 2,
+                UnitType = UnitType.Tablespoons
             });
             
             yourFoodData.Recipes.Add(zucchiniPatties);
@@ -270,49 +297,57 @@
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Olive oil").Id,
-                Quantity = 15,
+                Quantity = 1,
+                UnitType = UnitType.Tablespoons
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Chicken breast").Id,
-                Quantity = 1000,
+                Quantity = 6,
+                UnitType = UnitType.Pieces
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Lemon").Id,
                 Quantity = 1,
+                UnitType = UnitType.Pieces
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
-                Quantity = 56,
+                Quantity = 0.25,
+                UnitType = UnitType.Cups
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Mushroom").Id,
-                Quantity = 300,
+                Quantity = 3,
+                UnitType = UnitType.Cups
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Flour").Id,
-                Quantity = 20,
+                Quantity = 2,
+                UnitType = UnitType.Tablespoons
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Chicken broth").Id,
-                Quantity = 240,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             bakedLemonChickenWithMushroomSauce.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Parsley").Id,
-                Quantity = 11,
+                Quantity = 1,
+                UnitType = UnitType.Tablespoons
             });
 
             yourFoodData.Recipes.Add(bakedLemonChickenWithMushroomSauce);
@@ -330,55 +365,64 @@
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Flour").Id,
-                Quantity = 385,
+                Quantity = 3,
+                UnitType = UnitType.Cups
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Sugar").Id,
-                Quantity = 45,
+                Quantity = 3,
+                UnitType = UnitType.Tablespoons
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Baking powder").Id,
-                Quantity = 45,
+                Quantity = 3,
+                UnitType = UnitType.Teaspoons
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Baking soda").Id,
-                Quantity = 10,
+                Quantity = 1.5,
+                UnitType = UnitType.Teaspoons
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
-                Quantity = 4,
+                Quantity = 0.75,
+                UnitType = UnitType.Teaspoons
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Buttermilk").Id,
-                Quantity = 720,
+                Quantity = 3,
+                UnitType = UnitType.Cups
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Milk").Id,
-                Quantity = 125,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Egg").Id,
                 Quantity = 3,
+                UnitType = UnitType.Pieces
             });
 
             buttermilkPancakes.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Butter").Id,
-                Quantity = 75,
+                Quantity = 0.33,
+                UnitType = UnitType.Cups
             });
 
             yourFoodData.Recipes.Add(buttermilkPancakes);
@@ -396,61 +440,71 @@
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Pork").Id,
-                Quantity = 1.6,
+                Quantity = 6,
+                UnitType = UnitType.Pieces
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Garlic powder").Id,
-                Quantity = 3,
+                Quantity = 1,
+                UnitType = UnitType.Teaspoons
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
-                Quantity = 5,
+                Quantity = 1,
+                UnitType = UnitType.Teaspoons
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Egg").Id,
                 Quantity = 2,
+                UnitType = UnitType.Pieces
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Flour").Id,
-                Quantity = 30,
+                Quantity = 0.25,
+                UnitType = UnitType.Cups
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Bread crumb").Id,
-                Quantity = 250,
+                Quantity = 2,
+                UnitType = UnitType.Cups
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Olive oil").Id,
-                Quantity = 56,
+                Quantity = 4,
+                UnitType = UnitType.Tablespoons
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Mushroom sauce").Id,
                 Quantity = 150,
+                UnitType = UnitType.Grams
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Milk").Id,
-                Quantity = 120,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             bakedPorkChops.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "White wine").Id,
-                Quantity = 80,
+                Quantity = 0.33,
+                UnitType = UnitType.Cups
             });
 
             yourFoodData.Recipes.Add(bakedPorkChops);
@@ -468,73 +522,85 @@
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Olive oil").Id,
-                Quantity = 4,
+                Quantity = 1,
+                UnitType = UnitType.Teaspoons
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Onion").Id,
-                Quantity = 60,
+                Quantity = 1,
+                UnitType = UnitType.Pieces
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Garlic").Id,
-                Quantity = 15,
+                Quantity = 3,
+                UnitType = UnitType.Pieces
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Quinoa").Id,
-                Quantity = 100,
+                Quantity = 0.75,
+                UnitType = UnitType.Cups
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Vegetable broth").Id,
-                Quantity = 340,
+                Quantity = 1.5,
+                UnitType = UnitType.Cups
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cumin").Id,
-                Quantity = 3,
+                Quantity = 1,
+                UnitType = UnitType.Teaspoons
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Red pepper").Id,
-                Quantity = 1,
+                Quantity = 0.25,
+                UnitType = UnitType.Teaspoons
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Black pepper").Id,
                 Quantity = 0,
+                UnitType = UnitType.Grams
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
                 Quantity = 0,
+                UnitType = UnitType.Grams
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Corn").Id,
-                Quantity = 175,
+                Quantity = 1,
+                UnitType = UnitType.Cups
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Canned beans").Id,
                 Quantity = 425,
+                UnitType = UnitType.Grams
             });
 
             quinoaAndBlackBeans.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Coriander").Id,
-                Quantity = 25,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             yourFoodData.Recipes.Add(quinoaAndBlackBeans);
@@ -553,48 +619,56 @@
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Egg").Id,
                 Quantity = 6,
+                UnitType = UnitType.Pieces
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Vinegar").Id,
-                Quantity = 15,
+                Quantity = 1,
+                UnitType = UnitType.Teaspoons
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Mayonnaise").Id,
-                Quantity = 15,
+                Quantity = 1,
+                UnitType = UnitType.Tablespoons
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Mustard").Id,
-                Quantity = 1.5,
+                Quantity = 0.25,
+                UnitType = UnitType.Teaspoons
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
                 Quantity = 0,
+                UnitType = UnitType.Grams
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Black pepper").Id,
                 Quantity = 0,
+                UnitType = UnitType.Grams
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Paprika").Id,
-                Quantity = 2.2,
+                Quantity = 1,
+                UnitType = UnitType.Teaspoons
             });
 
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Lettuce").Id,
-                Quantity = 0,
+                Quantity = 2,
+                UnitType = UnitType.Pieces
             });
 
             yourFoodData.Recipes.Add(deviledEggs);
@@ -612,55 +686,64 @@
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cucumber").Id,
-                Quantity = 500,
+                Quantity = 2,
+                UnitType = UnitType.Pieces
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Avocado").Id,
                 Quantity = 2,
+                UnitType = UnitType.Pieces
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cilantro").Id,
-                Quantity = 6,
+                Quantity = 4,
+                UnitType = UnitType.Tablespoons
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Garlic").Id,
-                Quantity = 5,
+                Quantity = 1,
+                UnitType = UnitType.Pieces
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Onion").Id,
-                Quantity = 8,
+                Quantity = 2,
+                UnitType = UnitType.Tablespoons
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
-                Quantity = 1.5,
+                Quantity = 0.25,
+                UnitType = UnitType.Teaspoons
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Black pepper").Id,
                 Quantity = 0,
+                UnitType = UnitType.Grams
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Lemon").Id,
                 Quantity = 0.25,
+                UnitType = UnitType.Pieces
             });
 
             tangyCucumberAndAvocadoSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Lime").Id,
                 Quantity = 1,
+                UnitType = UnitType.Pieces
             });
 
             yourFoodData.Recipes.Add(tangyCucumberAndAvocadoSalad);
@@ -678,43 +761,50 @@
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Red onion").Id,
-                Quantity = 100,
+                Quantity = 1,
+                UnitType = UnitType.Pieces
             });
 
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Lime juice").Id,
-                Quantity = 15,
+                Quantity = 2,
+                UnitType = UnitType.Tablespoons
             });
 
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Olive oil").Id,
-                Quantity = 15,
+                Quantity = 2,
+                UnitType = UnitType.Tablespoons
             });
 
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Watermelon").Id,
-                Quantity = 1000,
+                Quantity = 1,
+                UnitType = UnitType.Pieces
             });
 
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Cucumber").Id,
-                Quantity = 300,
+                Quantity = 3,
+                UnitType = UnitType.Pieces
             });
 
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Feta cheese").Id,
-                Quantity = 150,
+                Quantity = 1,
+                UnitType = UnitType.Cups
             });
 
             refreshingCucumberWatermelonSalad.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Mint").Id,
-                Quantity = 10,
+                Quantity = 0.5,
+                UnitType = UnitType.Cups
             });
 
             yourFoodData.Recipes.Add(refreshingCucumberWatermelonSalad);
