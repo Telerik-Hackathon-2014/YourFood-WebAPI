@@ -290,6 +290,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\yourfood-services %2811%29.pubxml" />
     <None Include="Properties\PublishProfiles\yourfood-services %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\yourfood-services %288%29.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
