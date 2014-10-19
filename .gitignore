@@ -12,3 +12,5 @@ obj
 /YourFood.Services/bin
 /YourFood.Services/obj
 /YourFood-Services.v12.suo
+/YourFood.Services/Properties/PublishProfiles
+/YourFood.Services.csproj.user

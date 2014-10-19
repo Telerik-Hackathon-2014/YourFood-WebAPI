@@ -13,11 +13,11 @@
 
     [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ShoppingListsController2 : BaseODataController
+    public class ShoppingListsController : BaseODataController
     {
         private readonly IUserInfoProvider userInfoProvider;
 
-        public ShoppingListsController2(IYourFoodData yourFoodData, IUserInfoProvider userInfoProvider)
+        public ShoppingListsController(IYourFoodData yourFoodData, IUserInfoProvider userInfoProvider)
             : base(yourFoodData)
         {
             this.userInfoProvider = userInfoProvider;
@@ -30,7 +30,7 @@
             var list = this.Data.ShoppingLists
                 .All()
                 .Where(sl => sl.UserId == this.userInfoProvider.GetUserId() && !sl.IsFinished);
-
+            
             return SingleResult.Create(list);
         }
 
@@ -123,7 +123,6 @@
         [EnableQuery]
         public IQueryable<RecipeProduct> GetProducts([FromODataUri]
                                                      int key)
-
         {
             var products = this.Data.ShoppingLists
                                .All()

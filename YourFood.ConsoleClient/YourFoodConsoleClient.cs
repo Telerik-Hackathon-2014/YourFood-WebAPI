@@ -1085,7 +1085,6 @@
                 new Tuple<string, string, ProductCategory, UnitType>("Salamy", "salamy.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Salmon", "salmon.jpg", fishCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Salt", "salt-pepper-shaker.jpg", seasoningCategory, UnitType.Kilograms),
-                new Tuple<string, string, ProductCategory, UnitType>("Black pepper", "salt-pepper-shaker.jpg", seasoningCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Sausage", "sausage.jpg", meatCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Spinach", "spinach.jpg", vegetableCategory, UnitType.Kilograms),
                 new Tuple<string, string, ProductCategory, UnitType>("Strawberry", "strawberry.jpg", fruitCategory, UnitType.Grams),
