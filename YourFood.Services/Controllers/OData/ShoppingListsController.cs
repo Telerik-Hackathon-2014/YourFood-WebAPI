@@ -25,13 +25,9 @@
 
         // GET: api/ShoppingLists
         [EnableQuery]
-        public SingleResult<ShoppingList> GetShoppingLists()
+        public IQueryable<ShoppingList> GetShoppingLists()
         {
-            var list = this.Data.ShoppingLists
-                .All()
-                .Where(sl => sl.UserId == this.userInfoProvider.GetUserId() && !sl.IsFinished);
-
-            return SingleResult.Create(list);
+            return this.Data.ShoppingLists.All();
         }
 
         // GET: api/ShoppingLists(5)
@@ -85,11 +81,8 @@
         }
 
         // POST: api/ShoppingLists
-        public IHttpActionResult Post()
+        public IHttpActionResult Post(ShoppingList shoppingList)
         {
-            ShoppingList shoppingList = new ShoppingList();
-            shoppingList.DateCreated = DateTime.Now;
-            shoppingList.IsFinished = false;
             shoppingList.UserId = this.userInfoProvider.GetUserId();
 
             if (!this.ModelState.IsValid)
