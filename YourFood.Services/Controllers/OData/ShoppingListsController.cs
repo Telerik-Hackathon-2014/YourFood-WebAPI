@@ -25,9 +25,13 @@
 
         // GET: api/ShoppingLists
         [EnableQuery]
-        public IQueryable<ShoppingList> GetShoppingLists()
+        public SingleResult<ShoppingList> GetShoppingLists()
         {
-            return this.Data.ShoppingLists.All();
+            var list = this.Data.ShoppingLists
+                .All()
+                .Where(sl => sl.UserId == this.userInfoProvider.GetUserId() && !sl.IsFinished);
+            
+            return SingleResult.Create(list);
         }
 
         // GET: api/ShoppingLists(5)
