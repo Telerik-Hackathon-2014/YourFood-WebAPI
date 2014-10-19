@@ -68,7 +68,7 @@
 
             this.Data.SaveChanges();
 
-            return this.Ok(addedProducts);
+            return this.Ok(addedProducts.Select(a => a.ProductId));
         }
 
         private IList<int> ExtractProductIds(IList<string> lines)
@@ -121,6 +121,12 @@
         private Bitmap SaveByteArrayAsImage(string base64String)
         {
             Bitmap bmpReturn = null;
+
+            int mod4 = base64String.Length % 4;
+            if (mod4 > 0)
+            {
+                base64String += new string('=', 4 - mod4);
+            }
 
             byte[] byteBuffer = Convert.FromBase64String(base64String);
             MemoryStream memoryStream = new MemoryStream(byteBuffer);
