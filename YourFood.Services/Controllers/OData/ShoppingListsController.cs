@@ -85,8 +85,11 @@
         }
 
         // POST: api/ShoppingLists
-        public IHttpActionResult Post(ShoppingList shoppingList)
+        public IHttpActionResult Post()
         {
+            ShoppingList shoppingList = new ShoppingList();
+            shoppingList.DateCreated = DateTime.Now;
+            shoppingList.IsFinished = false;
             shoppingList.UserId = this.userInfoProvider.GetUserId();
 
             if (!this.ModelState.IsValid)
