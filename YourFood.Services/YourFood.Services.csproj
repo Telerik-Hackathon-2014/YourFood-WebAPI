@@ -308,6 +308,15 @@
     <Content Include="x86\libtesseract302.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="OCRS\tessdata\eng.cube.bigrams" />
+    <Content Include="OCRS\tessdata\eng.cube.fold" />
+    <Content Include="OCRS\tessdata\eng.cube.lm" />
+    <Content Include="OCRS\tessdata\eng.cube.nn" />
+    <Content Include="OCRS\tessdata\eng.cube.params" />
+    <Content Include="OCRS\tessdata\eng.cube.size" />
+    <Content Include="OCRS\tessdata\eng.cube.word-freq" />
+    <Content Include="OCRS\tessdata\eng.tesseract_cube.nn" />
+    <Content Include="OCRS\tessdata\eng.traineddata" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -359,6 +368,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="OCRS\images\" />
     <Folder Include="Views\ReceiptScanner\" />
   </ItemGroup>
   <PropertyGroup>
