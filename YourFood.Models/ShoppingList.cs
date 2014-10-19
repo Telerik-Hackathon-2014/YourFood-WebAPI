@@ -19,7 +19,7 @@
 
         public DateTime DateCreated { get; set; }
 
-        public DateTime DateFinished { get; set; }
+        public DateTime? DateFinished { get; set; }
 
         public bool IsFinished { get; set; }
 
