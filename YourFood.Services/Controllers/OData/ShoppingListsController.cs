@@ -123,7 +123,6 @@
         [EnableQuery]
         public IQueryable<RecipeProduct> GetProducts([FromODataUri]
                                                      int key)
-
         {
             var products = this.Data.ShoppingLists
                                .All()
