@@ -254,7 +254,7 @@
     <Compile Include="Controllers\OData\ProductsController.cs" />
     <Compile Include="Controllers\OData\RecipeCategoriesController.cs" />
     <Compile Include="Controllers\OData\RecipesController.cs" />
-    <Compile Include="Controllers\OData\ShoppingListsController.cs" />
+    <Compile Include="Controllers\OData\ShoppingListsController2.cs" />
     <Compile Include="Controllers\API\ReceiptScannerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

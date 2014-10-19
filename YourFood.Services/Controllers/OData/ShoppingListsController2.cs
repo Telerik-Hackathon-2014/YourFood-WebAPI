@@ -13,11 +13,11 @@
 
     [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ShoppingListsController : BaseODataController
+    public class ShoppingListsController2 : BaseODataController
     {
         private readonly IUserInfoProvider userInfoProvider;
 
-        public ShoppingListsController(IYourFoodData yourFoodData, IUserInfoProvider userInfoProvider)
+        public ShoppingListsController2(IYourFoodData yourFoodData, IUserInfoProvider userInfoProvider)
             : base(yourFoodData)
         {
             this.userInfoProvider = userInfoProvider;
