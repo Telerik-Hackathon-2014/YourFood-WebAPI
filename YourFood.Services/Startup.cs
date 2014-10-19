@@ -14,6 +14,7 @@
     using YourFood.Data.UoW;
     using YourFood.EverliveAPI;
     using YourFood.EverliveAPI.Contracts;
+    using YourFood.Services.Contracts;
 
     [assembly: OwinStartup(typeof(Startup))]
 
@@ -42,6 +43,7 @@
 
             kernel.Bind<IImageUploader>().To<ImageUploader>();
             kernel.Bind<IUserInfoProvider>().To<AspNetUserInfoProvider>();
+            kernel.Bind<IReceiptScanner>().To<ReceiptScannerTesseract>();
         }
     }
 }

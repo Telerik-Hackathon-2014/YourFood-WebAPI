@@ -2,17 +2,19 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.Linq;
+    using ReceiptScannerOCRS.Contracts;
     using Tesseract;
 
-    public class ReceiptScannerTesseract
+    public class ReceiptScannerTesseract : IReceiptScanner
     {
         private const string TessDataPath = "../../../ReceiptScannerOCRS/tessdata";
         private const string ImagePath = "../../../ReceiptScannerOCRS/fake-receipt.jpg";
         
-        public IList<string> GetLines(string imagePath = ImagePath)
+        public IList<string> GetLines(string imagePath, string tessDataPath = TessDataPath)
         {
-            using (var engine = new TesseractEngine(TessDataPath, "eng", EngineMode.Default))
+            using (var engine = new TesseractEngine(tessDataPath, "eng", EngineMode.Default))
             {
                 using (var image = Pix.LoadFromFile(ImagePath))
                 {
@@ -20,6 +22,17 @@
                     {
                         return this.ExtractLinesAsStrings(page);
                     }
+                }
+            }
+        }
+
+        public IList<string> GetLines(Bitmap image, string tessDataPath)
+        {
+            using (var engine = new TesseractEngine(tessDataPath, "eng", EngineMode.Default))
+            {
+                using (var page = engine.Process(image))
+                {
+                    return this.ExtractLinesAsStrings(page);
                 }
             }
         }

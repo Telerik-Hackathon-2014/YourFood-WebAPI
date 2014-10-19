@@ -16,12 +16,13 @@
     {
         private static readonly IYourFoodData yourFoodData = new YourFoodData(new YourFoodDbContext());
         private static readonly ReceiptScannerTesseract receiptScanner = new ReceiptScannerTesseract();
+        private static IList<Tag> tagsInMemory;
 
         internal static void Main()
         {
-            var textLines = receiptScanner.GetLines();
-            Console.WriteLine(string.Join(Environment.NewLine, textLines));
-
+            var textLines = receiptScanner.GetLines("123");
+            //Console.WriteLine(string.Join(Environment.NewLine, textLines));
+            ExtractWords(textLines);
             //SeedProductCategories();
             //SeedProducts();
             //SeedCatalogProducts();
@@ -30,6 +31,51 @@
             //SeedTags();
         }
  
+        private static void ExtractWords(IList<string> lines)
+        {
+
+            tagsInMemory = yourFoodData.Tags.All().ToList();
+
+            foreach (var line in lines)
+            {
+                var matches = Regex.Matches(line, @"[a-zA-Z]{2,}");
+                var wordsOnLine = matches.Cast<Match>().Select(m => m.Value);
+
+                if (wordsOnLine.Count() == 0)
+                {
+                    continue;
+                }
+
+                var hashSet = new HashSet<int>();
+
+                foreach (var word in wordsOnLine)
+                {
+                    var wordMatches = GetMatches(word);
+                    if (wordMatches.Count != 0)
+                    {
+                        if (hashSet.Count == 0)
+                        {
+                            hashSet.UnionWith(wordMatches);
+                        }
+                        else
+                        {
+                            hashSet.IntersectWith(wordMatches);
+                        }
+                    }
+                }
+
+                if (hashSet.Count != 0)
+                {
+                    Console.WriteLine(string.Join(" ", wordsOnLine) + " -> " + hashSet.First());
+                }
+            }
+        }
+
+        private static IList<int> GetMatches(string word)
+        {
+            return tagsInMemory.Where(t => t.Word == word).Select(t => t.ProductId).ToList();
+        }
+
         private static void SeedProductInDatabase()
         {
             if (yourFoodData.CatalogProducts.All().Any())
@@ -653,13 +699,6 @@
             deviledEggs.Ingredients.Add(new RecipeProduct()
             {
                 ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Salt").Id,
-                Quantity = 0,
-                UnitType = UnitType.Grams
-            });
-
-            deviledEggs.Ingredients.Add(new RecipeProduct()
-            {
-                ProductId = yourFoodData.Products.All().FirstOrDefault(p => p.Name == "Black pepper").Id,
                 Quantity = 0,
                 UnitType = UnitType.Grams
             });

@@ -10,7 +10,7 @@
 
         IQueryable<T> Search(Expression<Func<T, bool>> condition);
 
-        T Find(int id);
+        T Find(object id);
 
         void Add(T entity);
 

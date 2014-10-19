@@ -38,7 +38,7 @@
             return this.All().Where(condition);
         }
 
-        public virtual T Find(int id)
+        public virtual T Find(object id)
         {
             return this.DbSet.Find(id);
         }
